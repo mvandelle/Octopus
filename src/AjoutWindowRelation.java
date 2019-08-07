@@ -1,6 +1,7 @@
 import java.io.IOException;
 
 
+
 import org.apache.commons.math3.analysis.solvers.RiddersSolver;
 
 import javafx.collections.FXCollections;
@@ -384,10 +385,7 @@ public class AjoutWindowRelation {
 	    	        });
 	    	        rootARel.getChildren().add(Val);
 	    	        
-	    	        //TextField textArel2 = new TextField("test");
-	    	       // textArel2.setMinWidth(100);
-	    	       // textArel2.setLayoutX(120);
-	    	        //rootARel.getChildren().add(textArel2);
+	    	       
 	    	        
 	    	        stageARel.setScene(sceneARel);
 	    	        stageARel.show();

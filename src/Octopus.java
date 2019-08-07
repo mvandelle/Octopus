@@ -127,6 +127,9 @@ public class Octopus extends Application{
 	        AjoutMC test3 = new AjoutMC(regRel);
 	        root.getChildren().add(test3.creatButton());
 	        
+	        AjoutWindowCompte test4 = new AjoutWindowCompte(regCom);
+	        root.getChildren().add(test4.creatButton());
+	        
 	        primaryStage.setScene(scene);
 	        primaryStage.show();
 
@@ -137,6 +140,23 @@ public class Octopus extends Application{
 	{
 		regRel = new RegistreRelation();
 		regCom = new RegistreCompte();
+		
+		Compte c1 = new Compte("Marcelle2", "pas gentil", "12", "Banque du plat pays", "Maurice la salope", "10", "MV", "dire bonjour", ":')", "Colorado");
+		Compte c2 = new Compte("Paul", "pas gentil", "12", "Banque du plat pays", "Paul le pleutre", "10", "MV", "dire bonjour", ":')", "Colorado");
+		Compte c3 = new Compte("Gerard", "pas gentil", "12", "Banque du plat pays", "GeGe l'enc..", "10", "MV", "dire bonjour", ":')", "Colorado");
+		Compte c4 = new Compte("Marcelle", "pas gentil", "12", "Banque du plat pays", "En avant Marcelle", "10", "MV", "dire bonjour", ":')", "Colorado");
+		Compte c5 = new Compte("Jacki", "pas gentil", "12", "Banque du plat pays", "Jacki kéké", "10", "MV", "dire bonjour", ":')", "Colorado");
+		
+		regCom.addCompte(c1);
+		regCom.addCompte(c2);
+		regCom.addCompte(c3);
+		regCom.addCompte(c4);
+		regCom.addCompte(c5);
+		
+		regCom.writeRecap();
+		regCom.writeFile();
+		
+		
 		regRel.storeRelation();
 		regRel.writeNewFile();
 		launch(args);

@@ -4,10 +4,10 @@ public class Compte implements Comparable{
 	
 	private String intitule;
 	private String type;
-	private int nCompte;
+	private String nCompte;
 	private String banque;
 	private String ADE;
-	private int AUM;
+	private String AUM;
 	private String origineRelation;
 	private String toDO;
 	private String note;
@@ -15,7 +15,7 @@ public class Compte implements Comparable{
 	private ArrayList<AdmDoc> doc;
 	
 	
-	public Compte(String intitule, String type, int nCCompte, String banque, String aDE, int aUM,
+	public Compte(String intitule, String type, String nCCompte, String banque, String aDE, String aUM,
 			String origineRelation, String toDO, String note, String state) 
 	{
 		this.intitule = intitule;
@@ -43,10 +43,10 @@ public class Compte implements Comparable{
 	public void setType(String type) {
 		this.type = type;
 	}
-	public int getnCompte() {
+	public String getnCompte() {
 		return nCompte;
 	}
-	public void setnCompte(int nCCompte) {
+	public void setnCompte(String nCCompte) {
 		this.nCompte = nCCompte;
 	}
 	public String getBanque() {
@@ -61,10 +61,10 @@ public class Compte implements Comparable{
 	public void setADE(String aDE) {
 		ADE = aDE;
 	}
-	public int getAUM() {
+	public String getAUM() {
 		return AUM;
 	}
-	public void setAUM(int aUM) {
+	public void setAUM(String aUM) {
 		AUM = aUM;
 	}
 	public String getOrigineRelation() {
@@ -116,6 +116,14 @@ public class Compte implements Comparable{
 	public void addDoc(String name)
 	{
 		doc.add(new AdmDoc(name,false));
+	}
+	
+	public void addDoc(ArrayList<AdmDoc> d)
+	{
+		for ( int i = 0; i < d.size(); ++i)
+		{
+			this.addDoc(d.get(i).getName());
+		}
 	}
 	
 	
