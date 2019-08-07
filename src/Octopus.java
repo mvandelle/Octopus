@@ -10,6 +10,10 @@ import javafx.event.EventHandler;
 import javafx.scene.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.*;
 import javafx.scene.shape.*;
@@ -26,10 +30,29 @@ public class Octopus extends Application{
 		 primaryStage.setTitle("Octopus 1.0");
 		
 	        Group root = new Group();
-	        Scene scene = new Scene(root, 1000, 750, Color.CADETBLUE);
+	        Scene scene = new Scene(root, 1000, 750, Color.WHITE);
 	        
+	        
+	        File pict = new File("picsou.gif");
+	        String p = pict.toURI().toURL().toString();
+	        ImageView pic = new ImageView();
+	        pic.setImage(new Image(p));
+	        pic.setLayoutX(350);
+	        pic.setLayoutY(200);
+	        root.getChildren().add(pic);
+	        
+	        File ath = new File("athenee.png");
+	        String at = ath.toURI().toURL().toString();
+	        ImageView path = new ImageView();
+	        path.setImage(new Image(at));
+	        path.setLayoutX(-30);
+	        path.setLayoutY(-40);
+	        path.setScaleX(0.7);
+	        path.setScaleY(0.7);
+	        root.getChildren().add(path);
 	        
 	        Button rel = new Button();
+	        //rel.setStyle(" -fx-font-family: \"monospace\"");
 	        rel.setLayoutX(100);
 	        rel.setLayoutY(200);
 	        rel.setText("Accès au registre \n des relations");
@@ -37,7 +60,7 @@ public class Octopus extends Application{
 
 	            public void handle(ActionEvent event) {
 	                try {
-						Desktop.getDesktop().open(new File("/Users/marcvandelle/eclipse-workspace/Octopus/wut.xlsx"));
+						Desktop.getDesktop().open(new File("wut.xlsx"));
 					
 					} catch (IOException e) {
 						
@@ -55,7 +78,7 @@ public class Octopus extends Application{
 
 	            public void handle(ActionEvent event) {
 	                try {
-						Desktop.getDesktop().open(new File("/Users/marcvandelle/eclipse-workspace/Octopus/OC.xlsx"));
+						Desktop.getDesktop().open(new File("OC.xlsx"));
 					} catch (IOException e) {
 						
 						e.printStackTrace();
@@ -72,7 +95,7 @@ public class Octopus extends Application{
 
 	            public void handle(ActionEvent event) {
 	                try {
-						Desktop.getDesktop().open(new File("/Users/marcvandelle/eclipse-workspace/Octopus/MC.xlsx"));
+						Desktop.getDesktop().open(new File("MC.xlsx"));
 					} catch (IOException e) {
 						
 						e.printStackTrace();
@@ -89,7 +112,7 @@ public class Octopus extends Application{
 
 	            public void handle(ActionEvent event) {
 	                try {
-						Desktop.getDesktop().open(new File("/Users/marcvandelle/eclipse-workspace/Octopus/RegistreCompte.xlsx"));
+						Desktop.getDesktop().open(new File("RegistreCompte.xlsx"));
 					} catch (IOException e) {
 						
 						e.printStackTrace();
@@ -106,7 +129,7 @@ public class Octopus extends Application{
 
 	            public void handle(ActionEvent event) {
 	                try {
-						Desktop.getDesktop().open(new File("/Users/marcvandelle/eclipse-workspace/Octopus/Recapitulatif.xlsx"));
+						Desktop.getDesktop().open(new File("Recapitulatif.xlsx"));
 					} catch (IOException e) {
 						
 						e.printStackTrace();
@@ -116,7 +139,7 @@ public class Octopus extends Application{
 	        root.getChildren().add(rec);
 	        
 	        
-	        //boutton d'ajout
+	        //boutton d'ajout et de delete
 	        
 	        AjoutWindowRelation test = new AjoutWindowRelation(regRel);
 	        root.getChildren().add(test.creatButton());
@@ -129,6 +152,9 @@ public class Octopus extends Application{
 	        
 	        AjoutWindowCompte test4 = new AjoutWindowCompte(regCom);
 	        root.getChildren().add(test4.creatButton());
+	        
+	        DeleteWindowCompte test5 = new DeleteWindowCompte(regCom);
+	        root.getChildren().add(test5.creatButton());
 	        
 	        primaryStage.setScene(scene);
 	        primaryStage.show();

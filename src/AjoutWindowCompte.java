@@ -50,10 +50,174 @@ public class AjoutWindowCompte {
 		    	inti.setPromptText("Intitulé");
 		    	rootACom.getChildren().add(inti);
     	        
+		    	TextField type = new TextField();
+		    	type.setMaxWidth(100);
+		    	type.setLayoutX(100);
+		    	type.setPromptText("Type");
+		    	rootACom.getChildren().add(type);
+		    	
+		    	TextField nC = new TextField();
+		    	nC.setMaxWidth(100);
+		    	nC.setLayoutX(200);
+		    	nC.setPromptText("n°Compte");
+		    	rootACom.getChildren().add(nC);
+		    	
+		    	TextField bank = new TextField();
+		    	bank.setMaxWidth(100);
+		    	bank.setLayoutX(300);
+		    	bank.setPromptText("Banque");
+		    	rootACom.getChildren().add(bank);
+		    	
+		    	TextField ade = new TextField();
+		    	ade.setMaxWidth(100);
+		    	ade.setLayoutX(400);
+		    	ade.setPromptText("ADE");
+		    	rootACom.getChildren().add(ade);
+		    	
+		    	TextField aum = new TextField();
+		    	aum.setMaxWidth(100);
+		    	aum.setLayoutX(500);
+		        aum.setPromptText("AUM");
+		    	rootACom.getChildren().add(aum);
+		    	
+		    	TextField gest = new TextField();
+		    	gest.setMaxWidth(100);
+		        gest.setLayoutX(600);
+		    	gest.setPromptText("Origine relation");
+		    	rootACom.getChildren().add(gest);
+		    	
+		    	TextField toDo = new TextField();
+		    	toDo.setMaxWidth(100);
+		        toDo.setLayoutX(0);
+		        toDo.setLayoutY(30);
+		    	toDo.setPromptText("To do");
+		    	rootACom.getChildren().add(toDo);
+		    	
+		    	TextField note = new TextField();
+		    	note.setMaxWidth(100);
+		        note.setLayoutX(100);
+		        note.setLayoutY(30);
+		    	note.setPromptText("Note");
+		    	rootACom.getChildren().add(note);
+		    	
+		    	TextField state = new TextField();
+		    	state.setMaxWidth(100);
+		        state.setLayoutX(200);
+		        state.setLayoutY(30);
+		    	state.setPromptText("State");
+		    	rootACom.getChildren().add(state);
+		    	
+		    	
+		    	
     	        Val.setOnAction(new EventHandler<ActionEvent>() {
     	        
 					@Override
 					public void handle(ActionEvent event) {
+						
+						String sinti;
+						if (inti.getCharacters().toString().equals(""))
+						{
+							sinti = "Non renseigné";
+						
+						} else
+						{
+							sinti = inti.getCharacters().toString();
+						}
+						
+						String stype;
+						if (type.getCharacters().toString().equals(""))
+						{
+							stype = "Non renseigné";
+						
+						} else
+						{
+							stype = type.getCharacters().toString();
+						}
+						
+						String snC;
+						if (nC.getCharacters().toString().equals(""))
+						{
+							snC = "Non renseigné";
+						
+						} else
+						{
+							snC = nC.getCharacters().toString();
+						}
+						
+						String sbank;
+						if (bank.getCharacters().toString().equals(""))
+						{
+							sbank = "Non renseigné";
+						
+						} else
+						{
+							sbank = bank.getCharacters().toString();
+						}
+						
+						String sade;
+						if (ade.getCharacters().toString().equals(""))
+						{
+							sade = "Non renseigné";
+						
+						} else
+						{
+							sade = ade.getCharacters().toString();
+						}
+						
+						String saum;
+						if (aum.getCharacters().toString().equals(""))
+						{
+							saum = "Non renseigné";
+						
+						} else
+						{
+							saum = aum.getCharacters().toString();
+						}
+						
+						String sgest;
+						if (gest.getCharacters().toString().equals(""))
+						{
+							sgest = "Non renseigné";
+						
+						} else
+						{
+							sgest = gest.getCharacters().toString();
+						}
+						
+						String stodo;
+						if (toDo.getCharacters().toString().equals(""))
+						{
+							stodo = "Non renseigné";
+						
+						} else
+						{
+							stodo = toDo.getCharacters().toString();
+						}
+						
+						String snote;
+						if (note.getCharacters().toString().equals(""))
+						{
+							snote = "Non renseigné";
+						
+						} else
+						{
+							snote = note.getCharacters().toString();
+						}
+						
+						String sstate;
+						if (state.getCharacters().toString().equals(""))
+						{
+							sstate = "Non renseigné";
+						
+						} else
+						{
+							sstate = state.getCharacters().toString();
+						}
+						
+						Compte newC = new Compte(sinti, stype, snC, sbank, sade, saum, sgest, stodo, snote, sstate);
+						c.addCompte(newC);
+						stageACom.close();
+						
 						
 						
 		    	        

@@ -291,5 +291,15 @@ public class RegistreCompte {
 		}
 	}
 	
+	public ArrayList<String> getListC()
+	{
+		ArrayList<String> sC = new ArrayList<>();
+		for ( int i = 0; i < c.size(); ++i)
+		{
+			sC.add(c.get(i).toString());
+		}
+		return sC;
+	}
+	
 	
 }

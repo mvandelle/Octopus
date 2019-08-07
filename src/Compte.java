@@ -126,6 +126,11 @@ public class Compte implements Comparable{
 		}
 	}
 	
+	public String toString()
+	{
+		return nCompte + " " + intitule;
+	}
+	
 	
 
 }

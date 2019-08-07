@@ -61,7 +61,7 @@ public class AjoutMC {
     	        TextField mot = new TextField();
     	        mot.setMinWidth(500);
     	        mot.setLayoutX(0);
-    	        mot.setLayoutY(28);
+    	        mot.setLayoutY(30);
     	        mot.setPromptText("Motif");
     	        rootNM.getChildren().add(mot);
     	        

@@ -1,4 +1,5 @@
 import java.io.IOException;
+
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -15,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 public class DeleteWindowRelation {
 	RegistreRelation r;
@@ -50,6 +52,13 @@ public class DeleteWindowRelation {
     	        c.setPromptText("n°Compte Intitulé");
     	        rootDRel.getChildren().add(c);
     	        
+    	        TextField date = new TextField();
+    	        date.setMaxWidth(100);
+    	        date.setLayoutX(300);
+    	        date.setLayoutY(80);
+    	        date.setPromptText("jj/mm/aaaa");
+    	        rootDRel.getChildren().add(date);
+    	        
     	        Button Val = new Button();
     	        Val.setLayoutX(500);
     	        Val.setLayoutY(80);
@@ -60,8 +69,13 @@ public class DeleteWindowRelation {
 					public void handle(ActionEvent event) {
 						
 						int index = c.getSelectionModel().getSelectedIndex();
-						DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-						Date date = new Date();
+						if ( date.getCharacters().toString().equals(""))
+						{
+							Text error = new Text (300, 130, "Date manquante");
+							error.setFill(Color.RED);
+							rootDRel.getChildren().add(error);
+							return;
+						}
 						
 						if ( index == -1)
 						{
@@ -69,7 +83,7 @@ public class DeleteWindowRelation {
 						} else
 						{
 							try {
-								r.removeRelation(r.getR().get(index).getnCompte(), format.format(date));
+								r.removeRelation(r.getR().get(index).getnCompte(), date.getCharacters().toString());
 							} catch (IOException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
