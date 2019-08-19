@@ -16,7 +16,7 @@ public class MainTest2 {
 		test.MouvementCash("12/04/10", "EUR", true, 2, "TRF", "je t'en pose des questions", test.getR().get(0));*/
 		
 		 //TEST REGISTRE COMPTE
-		
+		/*
 		Compte c1 = new Compte("Marcelle", "pas gentil", "12", "Banque du plat pays", "Maurice la salope", "10", "MV", "dire bonjour", ":')", "Colorado");
 		Compte c2 = new Compte("Paul", "pas gentil", "12", "Banque du plat pays", "Paul le pleutre", "10", "MV", "dire bonjour", ":')", "Colorado");
 		Compte c3 = new Compte("Gerard", "pas gentil", "12", "Banque du plat pays", "GeGe l'enc..", "10", "MV", "dire bonjour", ":')", "Colorado");
@@ -32,7 +32,7 @@ public class MainTest2 {
 		rc.addCompte(c5);
 		rc.writeRecap();
 		rc.writeFile();
-		
+		*/
 		
 	}
 

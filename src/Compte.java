@@ -6,7 +6,8 @@ public class Compte implements Comparable{
 	private String type;
 	private String nCompte;
 	private String banque;
-	private String ADE;
+	private String ADENom;
+	private String ADEPrenom;
 	private String AUM;
 	private String origineRelation;
 	private String toDO;
@@ -15,14 +16,15 @@ public class Compte implements Comparable{
 	private ArrayList<AdmDoc> doc;
 	
 	
-	public Compte(String intitule, String type, String nCCompte, String banque, String aDE, String aUM,
+	public Compte(String intitule, String type, String nCCompte, String banque, String ADENom, String ADEPrenom, String aUM,
 			String origineRelation, String toDO, String note, String state) 
 	{
 		this.intitule = intitule;
 		this.type = type;
 		this.nCompte = nCCompte;
 		this.banque = banque;
-		ADE = aDE;
+		this.ADENom = ADENom;
+		this.ADEPrenom = ADEPrenom;
 		AUM = aUM;
 		this.origineRelation = origineRelation;
 		this.toDO = toDO;
@@ -55,11 +57,18 @@ public class Compte implements Comparable{
 	public void setBanque(String banque) {
 		this.banque = banque;
 	}
-	public String getADE() {
-		return ADE;
+	public String getADENom()
+	{
+		return ADENom;
 	}
-	public void setADE(String aDE) {
-		ADE = aDE;
+	public void setADENom(String ade) {
+		this.ADENom = ade;
+	}
+	public String getADEPrenom() {
+		return ADEPrenom;
+	}
+	public void setADEPrenom(String aDE) {
+		ADEPrenom = aDE;
 	}
 	public String getAUM() {
 		return AUM;
@@ -129,6 +138,19 @@ public class Compte implements Comparable{
 	public String toString()
 	{
 		return nCompte + " " + intitule;
+	}
+	
+	public void removeDoc(AdmDoc d)
+	{
+		for ( int i = 0; i < doc.size(); ++i)
+		{
+			if (doc.get(i).getName().equals(d.getName()))
+			{
+				doc.remove(i);
+				i= i-1;
+			}
+		}
+		
 	}
 	
 	

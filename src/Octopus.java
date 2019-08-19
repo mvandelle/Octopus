@@ -128,6 +128,13 @@ public class Octopus extends Application{
 	        rec.setOnAction(new EventHandler<ActionEvent>() {
 
 	            public void handle(ActionEvent event) {
+	            	
+	            	try {
+						regCom.writeRecap();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 	                try {
 						Desktop.getDesktop().open(new File("Recapitulatif.xlsx"));
 					} catch (IOException e) {
@@ -141,7 +148,7 @@ public class Octopus extends Application{
 	        
 	        //boutton d'ajout et de delete
 	        
-	        AjoutWindowRelation test = new AjoutWindowRelation(regRel);
+	        AjoutWindowRelation test = new AjoutWindowRelation(regRel, regCom);
 	        root.getChildren().add(test.creatButton());
 	        
 	        DeleteWindowRelation test2 = new DeleteWindowRelation(regRel);
@@ -156,6 +163,15 @@ public class Octopus extends Application{
 	        DeleteWindowCompte test5 = new DeleteWindowCompte(regCom);
 	        root.getChildren().add(test5.creatButton());
 	        
+	        AjoutWindowAdmDoc test6 = new AjoutWindowAdmDoc(regCom);
+	        root.getChildren().add(test6.creatButton());
+	        
+	        DeleteWindowAdmDoc test7 = new DeleteWindowAdmDoc(regCom);
+	        root.getChildren().add(test7.creatButton());
+	        
+	        WindowLinkDocCom test8 = new WindowLinkDocCom(regCom);
+	        root.getChildren().add(test8.creatButton());
+	        
 	        primaryStage.setScene(scene);
 	        primaryStage.show();
 
@@ -167,11 +183,11 @@ public class Octopus extends Application{
 		regRel = new RegistreRelation();
 		regCom = new RegistreCompte();
 		
-		Compte c1 = new Compte("Marcelle2", "pas gentil", "12", "Banque du plat pays", "Maurice la salope", "10", "MV", "dire bonjour", ":')", "Colorado");
-		Compte c2 = new Compte("Paul", "pas gentil", "12", "Banque du plat pays", "Paul le pleutre", "10", "MV", "dire bonjour", ":')", "Colorado");
-		Compte c3 = new Compte("Gerard", "pas gentil", "12", "Banque du plat pays", "GeGe l'enc..", "10", "MV", "dire bonjour", ":')", "Colorado");
-		Compte c4 = new Compte("Marcelle", "pas gentil", "12", "Banque du plat pays", "En avant Marcelle", "10", "MV", "dire bonjour", ":')", "Colorado");
-		Compte c5 = new Compte("Jacki", "pas gentil", "12", "Banque du plat pays", "Jacki kéké", "10", "MV", "dire bonjour", ":')", "Colorado");
+		Compte c1 = new Compte("Marcelle2", "pas gentil", "12", "Banque du plat pays","la salope", "Maurice", "10", "MV", "dire bonjour", ":')", "Colorado");
+		Compte c2 = new Compte("Paul", "pas gentil", "12", "Banque du plat pays","lepleutre", "Paul", "10", "MV", "dire bonjour", ":')", "Colorado");
+		Compte c3 = new Compte("Gerard", "pas gentil", "12", "Banque du plat pays","l'enc", "GeGe ", "10", "MV", "dire bonjour", ":')", "Colorado");
+		Compte c4 = new Compte("Marcelle", "pas gentil", "12", "Banque du plat pays","lapucelle", "Marcelle", "10", "MV", "dire bonjour", ":')", "Colorado");
+		Compte c5 = new Compte("Jacki", "pas gentil", "12", "Banque du plat pays","kéké", "Jacki", "10", "MV", "dire bonjour", ":')", "Colorado");
 		
 		regCom.addCompte(c1);
 		regCom.addCompte(c2);

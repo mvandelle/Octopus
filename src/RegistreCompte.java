@@ -65,6 +65,7 @@ public class RegistreCompte {
 		feuille.setColumnWidth(7, 20 * 256);
 		feuille.setColumnWidth(8, 20 * 256);
 		feuille.setColumnWidth(9, 20 * 256);
+		feuille.setColumnWidth(10, 20 * 256);
 		
 		Row row_0 = feuille.createRow((short) 0);
 		Cell cell0_5 = row_0.createCell(5);
@@ -91,27 +92,31 @@ public class RegistreCompte {
 		
 		Cell cell3_4 = row_3.createCell(4);
 		cell3_4.setCellStyle(st2);
-		cell3_4.setCellValue("ADE");
+		cell3_4.setCellValue("Prenom ADE");
 		
 		Cell cell3_5 = row_3.createCell(5);
 		cell3_5.setCellStyle(st2);
-		cell3_5.setCellValue("AUM");
+		cell3_5.setCellValue("Nom ADE");
 		
 		Cell cell3_6 = row_3.createCell(6);
 		cell3_6.setCellStyle(st2);
-		cell3_6.setCellValue("Origine de la relation");
+		cell3_6.setCellValue("AUM");
 		
 		Cell cell3_7 = row_3.createCell(7);
 		cell3_7.setCellStyle(st2);
-		cell3_7.setCellValue("To Do");
+		cell3_7.setCellValue("Origine de la relation");
 		
 		Cell cell3_8 = row_3.createCell(8);
 		cell3_8.setCellStyle(st2);
-		cell3_8.setCellValue("Note");
+		cell3_8.setCellValue("To Do");
 		
 		Cell cell3_9 = row_3.createCell(9);
 		cell3_9.setCellStyle(st2);
-		cell3_9.setCellValue("Etat");
+		cell3_9.setCellValue("Note");
+		
+		Cell cell3_10 = row_3.createCell(10);
+		cell3_10.setCellStyle(st2);
+		cell3_10.setCellValue("Etat");
 		
 		for ( int i = 4; i < c.size()+4; ++i)
 		{
@@ -120,12 +125,13 @@ public class RegistreCompte {
 			row.createCell(1).setCellValue(c.get(i-4).getType());
 			row.createCell(2).setCellValue(c.get(i-4).getnCompte());
 			row.createCell(3).setCellValue(c.get(i-4).getBanque());
-			row.createCell(4).setCellValue(c.get(i-4).getADE());
-			row.createCell(5).setCellValue(c.get(i-4).getAUM());
-			row.createCell(6).setCellValue(c.get(i-4).getOrigineRelation());
-			row.createCell(7).setCellValue(c.get(i-4).getToDO());
-			row.createCell(8).setCellValue(c.get(i-4).getNote());
-			row.createCell(9).setCellValue(c.get(i-4).getState());
+			row.createCell(4).setCellValue(c.get(i-4).getADEPrenom());
+			row.createCell(5).setCellValue(c.get(i-4).getADENom());
+			row.createCell(6).setCellValue(c.get(i-4).getAUM());
+			row.createCell(7).setCellValue(c.get(i-4).getOrigineRelation());
+			row.createCell(8).setCellValue(c.get(i-4).getToDO());
+			row.createCell(9).setCellValue(c.get(i-4).getNote());
+			row.createCell(10).setCellValue(c.get(i-4).getState());
 		}
 		
 		FileOutputStream fileOut;
@@ -142,6 +148,7 @@ public class RegistreCompte {
 	
 	public void addCompte(Compte newCompte)
 	{
+		newCompte.addDoc(doc);
 		c.add(newCompte);
 		this.writeFile();
 		
@@ -172,6 +179,7 @@ public class RegistreCompte {
 		feuille.setColumnWidth(2, 20 * 256);
 		feuille.setColumnWidth(3, 20 * 256);
 		feuille.setColumnWidth(4, 20 * 256);
+		feuille.setColumnWidth(5, 20 * 256);
 		
 		XSSFCellStyle st1 = wb.createCellStyle();
 		XSSFFont f1 = wb.createFont();
@@ -211,21 +219,24 @@ public class RegistreCompte {
 		cell3_0.setCellValue("Gestionnaire");
 		Cell cell3_1 = row_3.createCell(1);
 		cell3_1.setCellStyle(st2);
-		cell3_1.setCellValue("Client");
+		cell3_1.setCellValue("Client Prenom");
 		Cell cell3_2 = row_3.createCell(2);
 		cell3_2.setCellStyle(st2);
-		cell3_2.setCellValue("Compte");
+		cell3_2.setCellValue("Client Nom");
 		Cell cell3_3 = row_3.createCell(3);
 		cell3_3.setCellStyle(st2);
-		cell3_3.setCellValue("No Police");
+		cell3_3.setCellValue("Compte");
 		Cell cell3_4 = row_3.createCell(4);
 		cell3_4.setCellStyle(st2);
-		cell3_4.setCellValue("Banque");
+		cell3_4.setCellValue("No Police");
+		Cell cell3_5 = row_3.createCell(5);
+		cell3_5.setCellStyle(st2);
+		cell3_5.setCellValue("Banque");
 		
 		for ( int i = 0; i < doc.size(); ++i)
 		{
-			feuille.setColumnWidth(5+i, 20 * 256);
-			Cell cellI = row_3.createCell(5+i);
+			feuille.setColumnWidth(6+i, 20 * 256);
+			Cell cellI = row_3.createCell(6+i);
 			cellI.setCellStyle(st3);
 			cellI.setCellValue(doc.get(i).getName());
 		}
@@ -253,17 +264,22 @@ public class RegistreCompte {
 		XSSFWorkbook wb = new XSSFWorkbook(fichier);
 		XSSFSheet sheet = wb.getSheetAt(0);
 		
+		
 		for ( int i = 0; i < c.size(); ++i)
 		{
 			Row row = sheet.createRow( 4 + i);
 			row.createCell(0).setCellValue(c.get(i).getOrigineRelation());
-			row.createCell(1).setCellValue(c.get(i).getADE());
-			row.createCell(2).setCellValue(c.get(i).getnCompte());
-			row.createCell(4).setCellValue(c.get(i).getBanque());
+			row.createCell(1).setCellValue(c.get(i).getADEPrenom());
+			row.createCell(2).setCellValue(c.get(i).getADENom());
+			row.createCell(3).setCellValue(c.get(i).getnCompte());
+			row.createCell(5).setCellValue(c.get(i).getBanque());
+			
+			
 			
 			for ( int j = 0; j < c.get(i).getDoc().size(); ++j)
 			{
-				row.createCell(5+j).setCellValue(c.get(i).getDoc().get(j).isHaveIt());
+				
+				row.createCell(6+j).setCellValue(c.get(i).getDoc().get(j).isHaveIt());
 			}
 			
 		}
@@ -282,13 +298,14 @@ public class RegistreCompte {
 		}
 	}
 	
-	public void addDoc(String name)
+	public void addDoc(String name) throws IOException
 	{
 		doc.add(new AdmDoc(name, false));
 		for ( int i = 0; i < c.size(); ++ i)
 		{
 			c.get(i).addDoc(name);
 		}
+		this.writeRecap();
 	}
 	
 	public ArrayList<String> getListC()
@@ -299,6 +316,31 @@ public class RegistreCompte {
 			sC.add(c.get(i).toString());
 		}
 		return sC;
+	}
+	
+	public ArrayList<String> getListDoc()
+	{
+		ArrayList<String> sDoc = new ArrayList<>();
+		for ( int i = 0; i < doc.size(); ++i)
+		{
+			sDoc.add(doc.get(i).toString());
+		}
+		return sDoc;
+	}
+	
+	public void removeDoc(AdmDoc doc) throws IOException
+	{
+		this.doc.remove(doc);
+		for ( int i = 0; i < c.size(); ++i)
+		{
+			c.get(i).removeDoc(doc);
+		}
+		this.writeRecap();
+	}
+	
+	public ArrayList<AdmDoc> getDoc()
+	{
+		return doc;
 	}
 	
 	

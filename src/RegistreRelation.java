@@ -188,7 +188,7 @@ public class RegistreRelation {
 
 				t.setGestionnaire(stri.formatCellValue(ligne.getCell(3)));
 				t.setIntitule(stri.formatCellValue(ligne.getCell(4)));
-				t.setnCompte((int) ligne.getCell(5).getNumericCellValue());
+				t.setnCompte(stri.formatCellValue(ligne.getCell(5)));
 				t.setBanque(stri.formatCellValue(ligne.getCell(6)));
 				t.setNom(stri.formatCellValue(ligne.getCell(7)));
 				t.setPrenom(stri.formatCellValue(ligne.getCell(8)));
@@ -201,14 +201,14 @@ public class RegistreRelation {
 				} else {
 					t.setRisque(true);
 				}
-				t.setEntre((int) ligne.getCell(15).getNumericCellValue());
-				t.setDernier((int) ligne.getCell(16).getNumericCellValue());
+				t.setEntre(stri.formatCellValue(ligne.getCell(15)));
+				t.setDernier(stri.formatCellValue(ligne.getCell(16)));
 				t.setProfil(stri.formatCellValue(ligne.getCell(17)));
-				t.setComGest(ligne.getCell(18).getNumericCellValue());
-				t.setComPerf((int) ligne.getCell(19).getNumericCellValue());
+				t.setComGest(stri.formatCellValue(ligne.getCell(18)));
+				t.setComPerf(stri.formatCellValue(ligne.getCell(19)));
 				t.setMonnaie(stri.formatCellValue(ligne.getCell(20)));
-				t.setSoldeDeb((int) ligne.getCell(21).getNumericCellValue());
-				t.setSoldeFin((int) ligne.getCell(22).getNumericCellValue());
+				t.setSoldeDeb(stri.formatCellValue(ligne.getCell(21)));
+				t.setSoldeFin(stri.formatCellValue(ligne.getCell(22)));
 				r.add(t);
 
 			}
@@ -294,9 +294,9 @@ public class RegistreRelation {
 		}
 	}
 
-	public void removeRelation(int nCompte, String date) throws IOException {
+	public void removeRelation(String nCompte, String date) throws IOException {
 		for (int i = 0; i < r.size(); ++i) {
-			if (r.get(i).getnCompte() == nCompte) {
+			if (r.get(i).getnCompte().equals(nCompte)) {
 				FileInputStream fichier = new FileInputStream("OC.xlsx");
 				XSSFWorkbook wb = new XSSFWorkbook(fichier);
 				XSSFSheet sheet = wb.getSheetAt(1);

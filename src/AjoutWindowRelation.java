@@ -18,10 +18,12 @@ import javafx.stage.Stage;
 
 public class AjoutWindowRelation {
 	RegistreRelation r;
+	RegistreCompte c;
 	
-	public AjoutWindowRelation(RegistreRelation r)
+	public AjoutWindowRelation(RegistreRelation r, RegistreCompte c)
 	{
 		this.r = r;
+		this.c = c;
 	}
 	
 	public Button creatButton()
@@ -169,11 +171,41 @@ public class AjoutWindowRelation {
 	    	        soldeF.setPromptText("Solde fin");
 	    	        rootARel.getChildren().add(soldeF);
 	    	        
+	    	        ObservableList<String> optionsCom = 
+	     	        	    FXCollections.observableArrayList(
+	     	        	        c.getListC()
+	     	        	        );
+	     	        ComboBox<String> com = new ComboBox<String>(optionsCom);
+	     	        com.setMinWidth(200);
+	     	        com.setLayoutY(100);
+	     	        com.setLayoutX(100);
+	     	        com.setPromptText("Comptes preexistants");
+	     	        
+	     	        com.setOnAction(new EventHandler<ActionEvent>() {
+
+						@Override
+						public void handle(ActionEvent event) {
+							int indexC = com.getSelectionModel().getSelectedIndex();
+							
+							inti.setText(c.getC().get(indexC).getIntitule());
+							nC.setText(c.getC().get(indexC).getnCompte());
+							bank.setText(c.getC().get(indexC).getBanque());
+							prenom.setText(c.getC().get(indexC).getADEPrenom());
+							nom.setText(c.getC().get(indexC).getADENom());
+							soldeD.setText(c.getC().get(indexC).getAUM());
+							gest.setText(c.getC().get(indexC).getOrigineRelation());
+							
+							}
+	     	        	
+	     	        	});
+	     	        
+	     	        rootARel.getChildren().add(com);
+	    	        
 	    	        
 	    	        
 	    	        Button Val = new Button();
-	    	        Val.setLayoutX(100);
-	    	        Val.setLayoutY(100);
+	    	        Val.setLayoutX(600);
+	    	        Val.setLayoutY(150);
 	    	        Val.setText("Ajouter");
 	    	        Val.setOnAction(new EventHandler<ActionEvent>() {
 	    	        
@@ -202,7 +234,7 @@ public class AjoutWindowRelation {
 							String snC;
 							if (nC.getCharacters().toString().equals(""))
 							{
-								snC = "-1";
+								snC = "Non Renseigné";
 							
 							} else
 							{
@@ -282,7 +314,7 @@ public class AjoutWindowRelation {
 							String sentre;
 							if (entre.getCharacters().toString().equals(""))
 							{
-								sentre = "-1";
+								sentre = "Non renseigné";
 							
 							} else
 							{
@@ -292,7 +324,7 @@ public class AjoutWindowRelation {
 							String sdernier;
 							if (dernier.getCharacters().toString().equals(""))
 							{
-								sdernier = "-1";
+								sdernier = "Non renseigné";
 							
 							} else
 							{
@@ -312,7 +344,7 @@ public class AjoutWindowRelation {
 							String scomG;
 							if (comG.getCharacters().toString().equals(""))
 							{
-								scomG = "-1";
+								scomG = "Non renseigné";
 							
 							} else
 							{
@@ -322,7 +354,7 @@ public class AjoutWindowRelation {
 							String scomP;
 							if (comP.getCharacters().toString().equals(""))
 							{
-								scomP = "-1";
+								scomP = "Non renseigné";
 							
 							} else
 							{
@@ -342,7 +374,7 @@ public class AjoutWindowRelation {
 							String ssoldeD;
 							if (soldeD.getCharacters().toString().equals(""))
 							{
-								ssoldeD = "0";
+								ssoldeD = "Non renseigné";
 							
 							} else
 							{
@@ -352,7 +384,7 @@ public class AjoutWindowRelation {
 							String ssoldeF;
 							if (soldeF.getCharacters().toString().equals(""))
 							{
-								ssoldeF = "0";
+								ssoldeF = "Non renseigné";
 							
 							} else
 							{
@@ -373,7 +405,17 @@ public class AjoutWindowRelation {
 								brisk = true;
 							}
 							
-							Relation newR = new Relation(sgest, sinti, Integer.parseInt(snC), sbank, snom, sprenom, sdate, sleg, snat, sresi, brisk, Integer.parseInt(sentre), Integer.parseInt(sdernier), sprofil, Double.parseDouble(scomG), Integer.parseInt(scomP), sdevise, Integer.parseInt(ssoldeD), Integer.parseInt(ssoldeF));
+							if ( com.getSelectionModel().getSelectedIndex() != -1)
+							{
+								try {
+									c.removeCompte(c.getC().get(com.getSelectionModel().getSelectedIndex()).getIntitule());
+								} catch (IOException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+							}
+							
+							Relation newR = new Relation(sgest, sinti, snC, sbank, snom, sprenom, sdate, sleg, snat, sresi, brisk, sentre, sdernier, sprofil, scomG, scomP, sdevise, ssoldeD, ssoldeF);
 							try {
 								r.addRelation(newR);
 							} catch (IOException e) {

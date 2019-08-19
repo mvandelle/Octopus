@@ -68,41 +68,48 @@ public class AjoutWindowCompte {
 		    	bank.setPromptText("Banque");
 		    	rootACom.getChildren().add(bank);
 		    	
-		    	TextField ade = new TextField();
-		    	ade.setMaxWidth(100);
-		    	ade.setLayoutX(400);
-		    	ade.setPromptText("ADE");
-		    	rootACom.getChildren().add(ade);
+		    	TextField adeP = new TextField();
+		    	adeP.setMaxWidth(100);
+		    	adeP.setLayoutX(400);
+		    	adeP.setPromptText("Prenom ADE");
+		    	rootACom.getChildren().add(adeP);
+		    	
+		    	TextField adeN = new TextField();
+		    	adeN.setMaxWidth(100);
+		    	adeN.setLayoutX(500);
+		    	adeN.setPromptText("Nom ADE");
+		    	rootACom.getChildren().add(adeN);
 		    	
 		    	TextField aum = new TextField();
 		    	aum.setMaxWidth(100);
-		    	aum.setLayoutX(500);
+		    	aum.setLayoutX(600);
 		        aum.setPromptText("AUM");
 		    	rootACom.getChildren().add(aum);
 		    	
 		    	TextField gest = new TextField();
 		    	gest.setMaxWidth(100);
-		        gest.setLayoutX(600);
+		        gest.setLayoutX(0);
+		        gest.setLayoutY(30);
 		    	gest.setPromptText("Origine relation");
 		    	rootACom.getChildren().add(gest);
 		    	
 		    	TextField toDo = new TextField();
 		    	toDo.setMaxWidth(100);
-		        toDo.setLayoutX(0);
+		        toDo.setLayoutX(100);
 		        toDo.setLayoutY(30);
 		    	toDo.setPromptText("To do");
 		    	rootACom.getChildren().add(toDo);
 		    	
 		    	TextField note = new TextField();
 		    	note.setMaxWidth(100);
-		        note.setLayoutX(100);
+		        note.setLayoutX(200);
 		        note.setLayoutY(30);
 		    	note.setPromptText("Note");
 		    	rootACom.getChildren().add(note);
 		    	
 		    	TextField state = new TextField();
 		    	state.setMaxWidth(100);
-		        state.setLayoutX(200);
+		        state.setLayoutX(300);
 		        state.setLayoutY(30);
 		    	state.setPromptText("State");
 		    	rootACom.getChildren().add(state);
@@ -154,14 +161,24 @@ public class AjoutWindowCompte {
 							sbank = bank.getCharacters().toString();
 						}
 						
-						String sade;
-						if (ade.getCharacters().toString().equals(""))
+						String sadeP;
+						if (adeP.getCharacters().toString().equals(""))
 						{
-							sade = "Non renseigné";
+							sadeP = "Non renseigné";
 						
 						} else
 						{
-							sade = ade.getCharacters().toString();
+							sadeP = adeP.getCharacters().toString();
+						}
+						
+						String sadeN;
+						if (adeN.getCharacters().toString().equals(""))
+						{
+							sadeN = "Non renseigné";
+						
+						} else
+						{
+							sadeN = adeN.getCharacters().toString();
 						}
 						
 						String saum;
@@ -214,7 +231,7 @@ public class AjoutWindowCompte {
 							sstate = state.getCharacters().toString();
 						}
 						
-						Compte newC = new Compte(sinti, stype, snC, sbank, sade, saum, sgest, stodo, snote, sstate);
+						Compte newC = new Compte(sinti, stype, snC, sbank, sadeN,sadeP, saum, sgest, stodo, snote, sstate);
 						c.addCompte(newC);
 						stageACom.close();
 						

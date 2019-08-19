@@ -14,7 +14,14 @@ import org.apache.poi.ss.usermodel.DataFormatter;
 
 public class MainTest {
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
+		
+		String m = "Marc Vandelle";
+		
+		
+	}
+	
+	/*public static void main(String[] args) throws IOException {
 	       FileInputStream fichier = new FileInputStream(new File("Registre Relations copie.xlsx"));
 	       
 	       XSSFWorkbook wb = new XSSFWorkbook(fichier);
@@ -30,7 +37,7 @@ public class MainTest {
 	    	   			
 	    	   			t.setGestionnaire(stri.formatCellValue(ligne.getCell(3)));
 	    	   			t.setIntitule(stri.formatCellValue(ligne.getCell(4)));
-	    	   			t.setnCompte((int) ligne.getCell(5).getNumericCellValue());
+	    	   			t.setnCompte(stri.formatCellValue(ligne.getCell(5)));
 	    	   			t.setBanque(stri.formatCellValue(ligne.getCell(6)));
 	    	   			t.setNom(stri.formatCellValue(ligne.getCell(7)));
 	    	   			t.setPrenom(stri.formatCellValue(ligne.getCell(8)));
@@ -62,6 +69,6 @@ public class MainTest {
 	       }
 	       fichier.close();
 	       System.out.println(r);
-	    }
+	    }*/
 
 }

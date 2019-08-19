@@ -22,5 +22,10 @@ public class AdmDoc {
 		this.haveIt = haveIt;
 	}
 	
+	public String toString()
+	{
+		return name;
+	}
+	
 	
 }

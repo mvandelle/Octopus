@@ -2,7 +2,7 @@
 public class Relation implements Comparable {
 	private String gestionnaire;
 	private String intitule;
-	private int nCompte;
+	private String nCompte;
 	private String banque;
 	private String nom;
 	private String prenom;
@@ -11,18 +11,18 @@ public class Relation implements Comparable {
 	private String nationalite;
 	private String residence;
 	private boolean risque;
-	private int entre;
-	private int dernier;
+	private String entre;
+	private String dernier;
 	private String profil;
-	private double comGest;
-	private int comPerf;
+	private String comGest;
+	private String comPerf;
 	private String monnaie;
-	private int soldeDeb;
-	private int soldeFin;
+	private String soldeDeb;
+	private String soldeFin;
 
-	public Relation(String gestionnaire, String intitule, int nCompte, String banque, String nom, String prenom,
-			String date, String legislation, String nationalite, String residence, boolean risque, int entre,
-			int dernier, String profil, double comGest, int comPerf, String monnaie, int soldeDeb, int soldeFin) {
+	public Relation(String gestionnaire, String intitule, String nCompte, String banque, String nom, String prenom,
+			String date, String legislation, String nationalite, String residence, boolean risque, String entre,
+			String dernier, String profil, String comGest, String comPerf, String monnaie, String soldeDeb, String soldeFin) {
 		this.gestionnaire = gestionnaire;
 		this.intitule = intitule;
 		this.nCompte = nCompte;
@@ -49,6 +49,12 @@ public class Relation implements Comparable {
 	public Relation() {
 		
 	}
+	
+	public Relation(Compte c)
+	{
+		this.intitule = c.getIntitule();
+		
+	}
 
 
 
@@ -68,11 +74,11 @@ public class Relation implements Comparable {
 		this.intitule = intitule;
 	}
 
-	public int getnCompte() {
+	public String getnCompte() {
 		return nCompte;
 	}
 
-	public void setnCompte(int nCompte) {
+	public void setnCompte(String nCompte) {
 		this.nCompte = nCompte;
 	}
 
@@ -140,19 +146,19 @@ public class Relation implements Comparable {
 		this.risque = risque;
 	}
 
-	public int getEntre() {
+	public String getEntre() {
 		return entre;
 	}
 
-	public void setEntre(int entre) {
+	public void setEntre(String entre) {
 		this.entre = entre;
 	}
 
-	public int getDernier() {
+	public String getDernier() {
 		return dernier;
 	}
 
-	public void setDernier(int dernier) {
+	public void setDernier(String dernier) {
 		this.dernier = dernier;
 	}
 
@@ -164,19 +170,19 @@ public class Relation implements Comparable {
 		this.profil = profil;
 	}
 
-	public double getComGest() {
+	public String getComGest() {
 		return comGest;
 	}
 
-	public void setComGest(double comGest) {
+	public void setComGest(String comGest) {
 		this.comGest = comGest;
 	}
 
-	public int getComPerf() {
+	public String getComPerf() {
 		return comPerf;
 	}
 
-	public void setComPerf(int comPerf) {
+	public void setComPerf(String comPerf) {
 		this.comPerf = comPerf;
 	}
 
@@ -188,24 +194,24 @@ public class Relation implements Comparable {
 		this.monnaie = monnaie;
 	}
 
-	public int getSoldeDeb() {
+	public String getSoldeDeb() {
 		return soldeDeb;
 	}
 
-	public void setSoldeDeb(int soldeDeb) {
+	public void setSoldeDeb(String soldeDeb) {
 		this.soldeDeb = soldeDeb;
 	}
 
-	public int getSoldeFin() {
+	public String getSoldeFin() {
 		return soldeFin;
 	}
 
-	public void setSoldeFin(int soldeFin) {
+	public void setSoldeFin(String soldeFin) {
 		this.soldeFin = soldeFin;
 	}
 
 	public String toString() {
-		return Integer.toString(nCompte)+ " " + intitule;
+		return nCompte+ " " + intitule;
 	}
 	
 	
