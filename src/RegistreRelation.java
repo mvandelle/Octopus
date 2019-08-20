@@ -175,6 +175,36 @@ public class RegistreRelation {
 		wb.close();
 
 	}
+	
+	public boolean storeOC() throws IOException
+	{
+		FileInputStream fichier = new FileInputStream("OC.xlsx");
+		XSSFWorkbook wb = new XSSFWorkbook(fichier);
+		XSSFSheet sheet = wb.getSheetAt(0);
+		boolean OCDexist = false;
+		if ( sheet.getLastRowNum()>0)
+		{
+			OCDexist = false;
+		} 
+		
+		fichier.close();
+		return OCDexist;
+	}
+	
+	public boolean storeMC() throws IOException
+	{
+		FileInputStream fichier = new FileInputStream("MC.xlsx");
+		XSSFWorkbook wb = new XSSFWorkbook(fichier);
+		XSSFSheet sheet = wb.getSheetAt(0);
+		boolean MCDexist = false;
+		if ( sheet.getLastRowNum()>0)
+		{
+			MCDexist = false;
+		} 
+		
+		fichier.close();
+		return MCDexist;
+	}
 
 	public void storeRelation() throws InvalidFormatException, IOException {
 

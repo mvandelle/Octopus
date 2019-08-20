@@ -191,6 +191,15 @@ public class Octopus extends Application{
 		regCom.writeRecap();
 		regCom.writeFile();
 		
+		if ( regRel.storeMC())
+		{
+		regRel.creatMC();
+		}
+		if ( regRel.storeOC())
+		{
+		regRel.creatOc();
+		}
+		
 		
 		regRel.writeNewFile();
 		launch(args);

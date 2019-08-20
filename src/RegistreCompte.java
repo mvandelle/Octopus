@@ -85,7 +85,24 @@ public class RegistreCompte {
 		XSSFSheet sheet = wb.getSheetAt(0);
 		
 		int indexDoc = 6;
-		System.out.println(sheet.getRow(3).getLastCellNum());
+		
+		
+		while ( sheet.getRow(3).getLastCellNum() > indexDoc)
+		{
+			this.storeD(sheet.getRow(3).getCell(indexDoc).getStringCellValue());
+			++indexDoc;
+		}
+		
+		for ( int i = 0; i < doc.size(); ++i)
+		{
+			for ( int j = 0; j < c.size(); ++j)
+			{
+				if ( sheet.getRow(j+4).getCell(6+i).getBooleanCellValue())
+				{
+					c.get(j).HasDoc(doc.get(i).getName());
+				}
+			}
+		}
 		
 		fichier.close();
 		
