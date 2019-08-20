@@ -33,6 +33,11 @@ public class Compte implements Comparable{
 		this.doc = new ArrayList<>();
 	}
 	
+	public Compte()
+	{
+		this.doc = new ArrayList<>();
+	}
+	
 	public String getIntitule() {
 		return intitule;
 	}

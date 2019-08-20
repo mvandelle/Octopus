@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.IndexedColors;
@@ -31,6 +32,65 @@ public class RegistreCompte {
 	{
 		return c;
 	}
+	
+	public void storeCompte() throws IOException
+	{
+		FileInputStream fichier = new FileInputStream("RegistreCompte.xlsx");
+		XSSFWorkbook wb = new XSSFWorkbook(fichier);
+		XSSFSheet sheet = wb.getSheetAt(0);
+		DataFormatter stri = new DataFormatter();
+		
+		
+		
+		
+		
+		
+		
+		
+		for (Row ligne : sheet) {
+			Compte co = new Compte();
+			if (ligne.getRowNum() >= 4) {
+				
+				System.out.println(ligne.getCell(0).getStringCellValue());
+				co.setIntitule(stri.formatCellValue(ligne.getCell(0)));
+				co.setType(stri.formatCellValue(ligne.getCell(1)));
+				co.setnCompte(stri.formatCellValue(ligne.getCell(2)));
+				co.setBanque(stri.formatCellValue(ligne.getCell(3)));
+				co.setADEPrenom(stri.formatCellValue(ligne.getCell(4)));
+				co.setADENom(stri.formatCellValue(ligne.getCell(5)));
+				co.setAUM(stri.formatCellValue(ligne.getCell(6)));
+				co.setOrigineRelation(stri.formatCellValue(ligne.getCell(7)));
+				co.setToDO(stri.formatCellValue(ligne.getCell(8)));
+				co.setNote(stri.formatCellValue(ligne.getCell(9)));
+				co.setState(stri.formatCellValue(ligne.getCell(10)));
+				this.addStoreCompte(co);
+				
+				
+				
+				
+				
+					
+		    
+				
+			}
+		}
+		fichier.close();
+		
+	}
+	
+	public void storeDoc() throws IOException
+	{
+		FileInputStream fichier = new FileInputStream("Recapitulatif.xlsx");
+		XSSFWorkbook wb = new XSSFWorkbook(fichier);
+		XSSFSheet sheet = wb.getSheetAt(0);
+		
+		int indexDoc = 6;
+		System.out.println(sheet.getRow(3).getLastCellNum());
+		
+		fichier.close();
+		
+	}
+	
 	
 	public void writeFile()
 	{
@@ -151,6 +211,14 @@ public class RegistreCompte {
 		newCompte.addDoc(doc);
 		c.add(newCompte);
 		this.writeFile();
+		
+	}
+	
+	public void addStoreCompte(Compte newCompte)
+	{
+		newCompte.addDoc(doc);
+		c.add(newCompte);
+		
 		
 	}
 	
@@ -300,12 +368,23 @@ public class RegistreCompte {
 	
 	public void addDoc(String name) throws IOException
 	{
+		
+		
 		doc.add(new AdmDoc(name, false));
 		for ( int i = 0; i < c.size(); ++ i)
 		{
 			c.get(i).addDoc(name);
 		}
 		this.writeRecap();
+	}
+	
+	public void storeD(String name)
+	{
+		doc.add(new AdmDoc(name, false));
+		for ( int i = 0; i < c.size(); ++ i)
+		{
+			c.get(i).addDoc(name);
+		}
 	}
 	
 	public ArrayList<String> getListC()

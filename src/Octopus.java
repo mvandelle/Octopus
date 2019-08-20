@@ -60,7 +60,7 @@ public class Octopus extends Application{
 
 	            public void handle(ActionEvent event) {
 	                try {
-						Desktop.getDesktop().open(new File("wut.xlsx"));
+						Desktop.getDesktop().open(new File("Registre relation.xlsx"));
 					
 					} catch (IOException e) {
 						
@@ -182,24 +182,16 @@ public class Octopus extends Application{
 	{
 		regRel = new RegistreRelation();
 		regCom = new RegistreCompte();
+		regCom.storeCompte();
+		regCom.storeDoc();
+		regRel.storeRelation();
 		
-		Compte c1 = new Compte("Marcelle2", "pas gentil", "12", "Banque du plat pays","la salope", "Maurice", "10", "MV", "dire bonjour", ":')", "Colorado");
-		Compte c2 = new Compte("Paul", "pas gentil", "12", "Banque du plat pays","lepleutre", "Paul", "10", "MV", "dire bonjour", ":')", "Colorado");
-		Compte c3 = new Compte("Gerard", "pas gentil", "12", "Banque du plat pays","l'enc", "GeGe ", "10", "MV", "dire bonjour", ":')", "Colorado");
-		Compte c4 = new Compte("Marcelle", "pas gentil", "12", "Banque du plat pays","lapucelle", "Marcelle", "10", "MV", "dire bonjour", ":')", "Colorado");
-		Compte c5 = new Compte("Jacki", "pas gentil", "12", "Banque du plat pays","kéké", "Jacki", "10", "MV", "dire bonjour", ":')", "Colorado");
-		
-		regCom.addCompte(c1);
-		regCom.addCompte(c2);
-		regCom.addCompte(c3);
-		regCom.addCompte(c4);
-		regCom.addCompte(c5);
+	
 		
 		regCom.writeRecap();
 		regCom.writeFile();
 		
 		
-		regRel.storeRelation();
 		regRel.writeNewFile();
 		launch(args);
 	}

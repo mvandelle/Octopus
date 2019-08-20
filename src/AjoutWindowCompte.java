@@ -38,7 +38,7 @@ public class AjoutWindowCompte {
             	Stage stageACom = new Stage();
             	stageACom.setTitle("Nouveau compte");
             	Group rootACom = new Group();
-    	        Scene sceneACom= new Scene(rootACom, 700, 200, Color.CADETBLUE);
+    	        Scene sceneACom= new Scene(rootACom, 700, 200, Color.WHITE);
             	
             	Button Val = new Button();
     	        Val.setLayoutX(100);

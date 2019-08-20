@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class AjoutWindowRelation {
@@ -38,7 +39,7 @@ public class AjoutWindowRelation {
 	            	Stage stageARel = new Stage();
 	            	stageARel.setTitle("Nouvelle relation");
 	            	Group rootARel = new Group();
-	    	        Scene sceneARel= new Scene(rootARel, 700, 200, Color.CADETBLUE);
+	    	        Scene sceneARel= new Scene(rootARel, 700, 200, Color.WHITE);
 	    	        
 	    	        
 	    	        TextField gest = new TextField();
@@ -79,7 +80,7 @@ public class AjoutWindowRelation {
 	    	        TextField date = new TextField();
 	    	        date.setMaxWidth(100);
 	    	        date.setLayoutX(600);
-	    	        date.setPromptText("Date");
+	    	        date.setPromptText("Date naissance");
 	    	        rootARel.getChildren().add(date);
 	    	        
 	    	        TextField leg = new TextField();
@@ -171,6 +172,13 @@ public class AjoutWindowRelation {
 	    	        soldeF.setPromptText("Solde fin");
 	    	        rootARel.getChildren().add(soldeF);
 	    	        
+	    	        TextField dateO = new TextField();
+	    	        dateO.setMaxWidth(100);
+	    	        dateO.setLayoutY(60);
+	    	        dateO.setLayoutX(500);
+	    	        dateO.setPromptText("Date ouverture");
+	    	        rootARel.getChildren().add(dateO);
+	    	        
 	    	        ObservableList<String> optionsCom = 
 	     	        	    FXCollections.observableArrayList(
 	     	        	        c.getListC()
@@ -211,6 +219,15 @@ public class AjoutWindowRelation {
 	    	        
 						@Override
 						public void handle(ActionEvent event) {
+							
+							if ( dateO.getCharacters().toString().equals(""))
+							{
+								Text error = new Text (400, 165, "Date d'ouverture manquante");
+								error.setFill(Color.RED);
+								rootARel.getChildren().add(error);
+								return;
+							}
+							
 							String sgest;
 							if (gest.getCharacters().toString().equals(""))
 							{
@@ -417,7 +434,7 @@ public class AjoutWindowRelation {
 							
 							Relation newR = new Relation(sgest, sinti, snC, sbank, snom, sprenom, sdate, sleg, snat, sresi, brisk, sentre, sdernier, sprofil, scomG, scomP, sdevise, ssoldeD, ssoldeF);
 							try {
-								r.addRelation(newR);
+								r.addRelation(newR, dateO.getCharacters().toString());
 							} catch (IOException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();

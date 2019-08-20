@@ -39,14 +39,14 @@ public class DeleteWindowRelation {
             	Stage stageDRel = new Stage();
             	stageDRel.setTitle("Supprimer relation");
             	Group rootDRel = new Group();
-    	        Scene sceneDRel= new Scene(rootDRel, 700, 200, Color.CADETBLUE);
+    	        Scene sceneDRel= new Scene(rootDRel, 700, 200, Color.WHITE);
     	        
     	        ObservableList<String> options = 
     	        	    FXCollections.observableArrayList(
     	        	        r.listNCompte()
     	        	        );
     	        ComboBox c = new ComboBox(options);
-    	        c.setMinWidth(200);
+    	        c.setMaxWidth(200);
     	        c.setLayoutY(80);
     	        c.setLayoutX(100);
     	        c.setPromptText("n°Compte Intitulé");

@@ -31,7 +31,7 @@ public class WindowLinkDocCom {
             	Stage stageL = new Stage();
             	stageL.setTitle("Nouveau lien");
             	Group rootL = new Group();
-    	        Scene sceneL= new Scene(rootL, 700, 200, Color.CADETBLUE);
+    	        Scene sceneL= new Scene(rootL, 700, 200, Color.WHITE);
     	        
     	        Button Val = new Button();
     	        Val.setLayoutX(500);
@@ -65,6 +65,18 @@ public class WindowLinkDocCom {
         	        
 					@Override
 					public void handle(ActionEvent event) {
+						
+						int indexD = docu.getSelectionModel().getSelectedIndex();
+						int indexC = com.getSelectionModel().getSelectedIndex();
+						
+						if ( indexD == -1 || indexC == -1)
+						{
+							stageL.close();
+						} else
+						{
+							c.getC().get(indexC).HasDoc(options.get(indexD).toString());
+							stageL.close();
+						}
 						
 						
 					}

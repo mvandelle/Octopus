@@ -39,7 +39,7 @@ public class DeleteWindowAdmDoc {
         		Stage stageADoc = new Stage();
              	stageADoc.setTitle("Supprimer un document");
              	Group rootADoc = new Group();
-     	        Scene sceneADoc= new Scene(rootADoc, 700, 200, Color.CADETBLUE);
+     	        Scene sceneADoc= new Scene(rootADoc, 700, 200, Color.WHITE);
      	        
      	       ObservableList<String> options = 
    	        	    FXCollections.observableArrayList(

@@ -38,7 +38,7 @@ public class DeleteWindowCompte {
             	Stage stageDCom = new Stage();
             	stageDCom.setTitle("Supprimer compte");
             	Group rootDCom = new Group();
-    	        Scene sceneDCom= new Scene(rootDCom, 700, 200, Color.CADETBLUE);
+    	        Scene sceneDCom= new Scene(rootDCom, 700, 200, Color.WHITE);
             	
             	 ObservableList<String> options = 
      	        	    FXCollections.observableArrayList(

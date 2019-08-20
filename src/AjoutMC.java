@@ -38,7 +38,7 @@ public class AjoutMC {
             	Stage stageNM = new Stage();
             	stageNM.setTitle("Ajouter un mouvement");
             	Group rootNM = new Group();
-    	        Scene sceneNM= new Scene(rootNM, 700, 200, Color.CADETBLUE);
+    	        Scene sceneNM= new Scene(rootNM, 700, 200, Color.WHITE);
     	        
     	        
     	        TextField dev = new TextField();

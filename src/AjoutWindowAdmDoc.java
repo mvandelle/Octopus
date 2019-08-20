@@ -48,7 +48,7 @@ public class AjoutWindowAdmDoc {
             	Stage stageADoc = new Stage();
             	stageADoc.setTitle("Nouveau document");
             	Group rootADoc = new Group();
-    	        Scene sceneADoc= new Scene(rootADoc, 700, 200, Color.CADETBLUE);
+    	        Scene sceneADoc= new Scene(rootADoc, 700, 200, Color.WHITE);
     	        
     	        TextField doc = new TextField();
     	        doc.setMinWidth(200);
