@@ -1,8 +1,12 @@
 import java.awt.Desktop;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import javafx.application.*;
 import javafx.event.ActionEvent;
@@ -172,6 +176,9 @@ public class Octopus extends Application{
 	        WindowLinkDocCom test8 = new WindowLinkDocCom(regCom);
 	        root.getChildren().add(test8.creatButton());
 	        
+	        SecurityButton sauv = new SecurityButton();
+	        root.getChildren().add(sauv.creatButton());
+	        
 	        primaryStage.setScene(scene);
 	        primaryStage.show();
 
@@ -182,6 +189,8 @@ public class Octopus extends Application{
 	{
 		regRel = new RegistreRelation();
 		regCom = new RegistreCompte();
+		
+		
 		regCom.storeCompte();
 		regCom.storeDoc();
 		regRel.storeRelation();
@@ -202,6 +211,8 @@ public class Octopus extends Application{
 		
 		
 		regRel.writeNewFile();
+		
+		
 		launch(args);
 	}
 	

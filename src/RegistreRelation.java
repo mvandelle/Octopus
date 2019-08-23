@@ -182,9 +182,9 @@ public class RegistreRelation {
 		XSSFWorkbook wb = new XSSFWorkbook(fichier);
 		XSSFSheet sheet = wb.getSheetAt(0);
 		boolean OCDexist = false;
-		if ( sheet.getLastRowNum()>0)
+		if ( sheet.getLastRowNum()<2)
 		{
-			OCDexist = false;
+			OCDexist = true;
 		} 
 		
 		fichier.close();
@@ -197,14 +197,15 @@ public class RegistreRelation {
 		XSSFWorkbook wb = new XSSFWorkbook(fichier);
 		XSSFSheet sheet = wb.getSheetAt(0);
 		boolean MCDexist = false;
-		if ( sheet.getLastRowNum()>0)
+		if ( sheet.getLastRowNum()<2)
 		{
-			MCDexist = false;
+			MCDexist = true;
 		} 
 		
 		fichier.close();
 		return MCDexist;
 	}
+	
 
 	public void storeRelation() throws InvalidFormatException, IOException {
 
@@ -226,7 +227,7 @@ public class RegistreRelation {
 				t.setLegitimation(stri.formatCellValue(ligne.getCell(8)));
 				t.setNationalite(stri.formatCellValue(ligne.getCell(9)));
 				t.setResidence(stri.formatCellValue(ligne.getCell(10)));
-				if (stri.formatCellValue(ligne.getCell(11)).equals("NON")) {
+				if (ligne.getCell(11).getBooleanCellValue() == false) {
 					t.setRisque(false);
 				} else {
 					t.setRisque(true);
