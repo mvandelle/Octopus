@@ -3,6 +3,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellCopyPolicy;
@@ -65,6 +68,12 @@ public class SecurityButton {
 	
 	public void copyFile (String old) throws IOException
 	{
+		Date actuelle = new Date();
+		DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		String dat = dateFormat.format(actuelle);
+		 
+		
+		
 		FileInputStream fichier = new FileInputStream(old);
 		XSSFWorkbook wb = new XSSFWorkbook(fichier);
 		
@@ -78,12 +87,12 @@ public class SecurityButton {
 			{
 				Row rw = sh.createRow(i);
 				
-				System.out.println(i);
+			
 				
 				if (sheet.getRow(i) != null) {
 				for ( int j = sheet.getRow(i).getFirstCellNum(); j < sheet.getRow(i).getLastCellNum(); ++j)
 				{
-					System.out.println("j:"+j);
+					
 					
 					if ( sheet.getRow(i).getCell(j) != null)
 					{
@@ -102,10 +111,11 @@ public class SecurityButton {
 				
 			}
 		}
+		String s = "Sauvegarde-"+dat+"-";
 		
 		FileOutputStream fileOut;
 		try {
-			fileOut = new FileOutputStream("Sauvegarde"+old);
+			fileOut = new FileOutputStream(s+old);
 			wb.write(fileOut);
 			fileOut.close();
 		} catch (FileNotFoundException e) {

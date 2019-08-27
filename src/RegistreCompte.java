@@ -51,7 +51,7 @@ public class RegistreCompte {
 			Compte co = new Compte();
 			if (ligne.getRowNum() >= 4) {
 				
-				System.out.println(ligne.getCell(0).getStringCellValue());
+				
 				co.setIntitule(stri.formatCellValue(ligne.getCell(0)));
 				co.setType(stri.formatCellValue(ligne.getCell(1)));
 				co.setnCompte(stri.formatCellValue(ligne.getCell(2)));

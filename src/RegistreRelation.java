@@ -13,6 +13,7 @@ import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
@@ -224,13 +225,21 @@ public class RegistreRelation {
 				t.setNom(stri.formatCellValue(ligne.getCell(4)));
 				t.setPrenom(stri.formatCellValue(ligne.getCell(5)));
 				t.setDate(stri.formatCellValue(ligne.getCell(6)));
+				t.setAdresse(stri.formatCellValue(ligne.getCell(7)));
 				t.setLegitimation(stri.formatCellValue(ligne.getCell(8)));
 				t.setNationalite(stri.formatCellValue(ligne.getCell(9)));
 				t.setResidence(stri.formatCellValue(ligne.getCell(10)));
+				
+				if ( ligne.getCell(11).getCellType() == CellType.BOOLEAN)
+				{
 				if (ligne.getCell(11).getBooleanCellValue() == false) {
 					t.setRisque(false);
 				} else {
 					t.setRisque(true);
+				}
+				} else
+				{
+					t.setRisque(false);
 				}
 				t.setEntre(stri.formatCellValue(ligne.getCell(12)));
 				t.setDernier(stri.formatCellValue(ligne.getCell(13)));
@@ -240,7 +249,7 @@ public class RegistreRelation {
 				t.setMonnaie(stri.formatCellValue(ligne.getCell(17)));
 				t.setSoldeDeb(stri.formatCellValue(ligne.getCell(18)));
 				t.setSoldeFin(stri.formatCellValue(ligne.getCell(19)));
-				System.out.println(t);
+				
 				r.add(t);
 
 			}
@@ -360,6 +369,7 @@ public class RegistreRelation {
 			row.createCell(4).setCellValue(r.get(i).getNom());
 			row.createCell(5).setCellValue(r.get(i).getPrenom());
 			row.createCell(6).setCellValue(r.get(i).getDate());
+			row.createCell(7).setCellValue(r.get(i).getAdresse());
 			row.createCell(8).setCellValue(r.get(i).getLegitimation());
 			row.createCell(9).setCellValue(r.get(i).getNationalite());
 			row.createCell(10).setCellValue(r.get(i).getResidence());

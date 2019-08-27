@@ -19,6 +19,7 @@ public class Relation implements Comparable {
 	private String monnaie;
 	private String soldeDeb;
 	private String soldeFin;
+	private String adresse;
 
 	public Relation(String gestionnaire, String intitule, String nCompte, String banque, String nom, String prenom,
 			String date, String legislation, String nationalite, String residence, boolean risque, String entre,
@@ -54,6 +55,16 @@ public class Relation implements Comparable {
 	{
 		this.intitule = c.getIntitule();
 		
+	}
+	
+	public String getAdresse()
+	{
+		return adresse;
+	}
+	
+	public void setAdresse(String adresse)
+	{
+		this.adresse = adresse;
 	}
 
 

@@ -21,6 +21,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.*;
 import javafx.scene.shape.*;
+import javafx.scene.text.Font;
 import javafx.stage.*;
 import javafx.stage.Modality;
 
@@ -31,7 +32,9 @@ public class Octopus extends Application{
 	private static RegistreCompte regCom;
 	
 	public void start(Stage primaryStage) throws IOException {
-		 primaryStage.setTitle("Octopus 1.0");
+		 	primaryStage.setTitle("Octopus 1.2");
+		 
+		 
 		
 	        Group root = new Group();
 	        Scene scene = new Scene(root, 1000, 750, Color.WHITE);
@@ -55,8 +58,13 @@ public class Octopus extends Application{
 	        path.setScaleY(0.7);
 	        root.getChildren().add(path);
 	        
+	        
 	        Button rel = new Button();
-	        //rel.setStyle(" -fx-font-family: \"monospace\"");
+	        File berna = new File("ARCOVERD.ttf");
+	        String bern = berna.toURI().toURL().toString();
+	        Font police = Font.loadFont(bern,15);
+	        rel.setFont(police);
+	        
 	        rel.setLayoutX(100);
 	        rel.setLayoutY(200);
 	        rel.setText("Accès au registre \n des relations");
@@ -78,6 +86,7 @@ public class Octopus extends Application{
 	        oc.setLayoutX(60);
 	        oc.setLayoutY(450);
 	        oc.setText("Accès aux Ouvertures/Clotures");
+	        oc.setFont(police);
 	        oc.setOnAction(new EventHandler<ActionEvent>() {
 
 	            public void handle(ActionEvent event) {
@@ -95,6 +104,7 @@ public class Octopus extends Application{
 	        mc.setLayoutX(400);
 	        mc.setLayoutY(600);
 	        mc.setText("Accès aux mouvement cash");
+	        mc.setFont(police);
 	        mc.setOnAction(new EventHandler<ActionEvent>() {
 
 	            public void handle(ActionEvent event) {
@@ -112,6 +122,7 @@ public class Octopus extends Application{
 	        dc.setLayoutX(770);
 	        dc.setLayoutY(200);
 	        dc.setText("Accès au détail \n des comptes");
+	        dc.setFont(police);
 	        dc.setOnAction(new EventHandler<ActionEvent>() {
 
 	            public void handle(ActionEvent event) {
@@ -129,6 +140,7 @@ public class Octopus extends Application{
 	        rec.setLayoutX(750);
 	        rec.setLayoutY(450);
 	        rec.setText("Accès au récapitulatif \n des comptes");
+	        rec.setFont(police);
 	        rec.setOnAction(new EventHandler<ActionEvent>() {
 
 	            public void handle(ActionEvent event) {
@@ -178,6 +190,8 @@ public class Octopus extends Application{
 	        
 	        SecurityButton sauv = new SecurityButton();
 	        root.getChildren().add(sauv.creatButton());
+	        
+	        
 	        
 	        primaryStage.setScene(scene);
 	        primaryStage.show();
