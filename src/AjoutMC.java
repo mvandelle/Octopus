@@ -28,8 +28,8 @@ public class AjoutMC {
 	public Button creatButton()
 	{
 		Button but = new Button();
-        but.setLayoutX(420);
-        but.setLayoutY(635);
+        but.setLayoutX(400);
+        but.setLayoutY(650);
         but.setText("Ajouter un mouvement");
         but.setOnAction(new EventHandler<ActionEvent>() {
 

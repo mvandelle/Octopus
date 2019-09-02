@@ -30,8 +30,8 @@ public class AjoutWindowRelation {
 	public Button creatButton()
 	{
 		  	Button but = new Button();
-	        but.setLayoutX(100);
-	        but.setLayoutY(250);
+	        but.setLayoutX(80);
+	        but.setLayoutY(340);
 	        but.setText("Ajouter une relation");
 	        but.setOnAction(new EventHandler<ActionEvent>() {
 

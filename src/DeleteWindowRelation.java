@@ -29,8 +29,8 @@ public class DeleteWindowRelation {
 	public Button creatButton()
 	{
 		Button but = new Button();
-        but.setLayoutX(100);
-        but.setLayoutY(285);
+        but.setLayoutX(80);
+        but.setLayoutY(370);
         but.setText("Supprimer une relation");
         but.setOnAction(new EventHandler<ActionEvent>() {
 

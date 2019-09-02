@@ -32,20 +32,24 @@ public class Octopus extends Application{
 	private static RegistreCompte regCom;
 	
 	public void start(Stage primaryStage) throws IOException {
-		 	primaryStage.setTitle("Octopus 1.2");
+		 	primaryStage.setTitle("Octopus 1.0");
 		 
 		 
 		
 	        Group root = new Group();
+	        
 	        Scene scene = new Scene(root, 1000, 750, Color.WHITE);
 	        
 	        
-	        File pict = new File("picsou.gif");
+	        File pict = new File("o.png");
 	        String p = pict.toURI().toURL().toString();
 	        ImageView pic = new ImageView();
 	        pic.setImage(new Image(p));
-	        pic.setLayoutX(350);
-	        pic.setLayoutY(200);
+	        pic.setFitHeight(450);
+	        pic.setFitWidth(450);
+	        pic.setLayoutX(275);
+	        pic.setLayoutY(150);
+	        
 	        root.getChildren().add(pic);
 	        
 	        File ath = new File("athenee.png");
@@ -65,8 +69,8 @@ public class Octopus extends Application{
 	        Font police = Font.loadFont(bern,15);
 	        rel.setFont(police);
 	        
-	        rel.setLayoutX(100);
-	        rel.setLayoutY(200);
+	        rel.setLayoutX(80);
+	        rel.setLayoutY(291);
 	        rel.setText("Accès au registre \n des relations");
 	        rel.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -83,8 +87,8 @@ public class Octopus extends Application{
 	        root.getChildren().add(rel);
 	        
 	        Button oc = new Button();
-	        oc.setLayoutX(60);
-	        oc.setLayoutY(450);
+	        oc.setLayoutX(90);
+	        oc.setLayoutY(550);
 	        oc.setText("Accès aux Ouvertures/Clotures");
 	        oc.setFont(police);
 	        oc.setOnAction(new EventHandler<ActionEvent>() {
@@ -101,8 +105,8 @@ public class Octopus extends Application{
 	        root.getChildren().add(oc);
 	        
 	        Button mc = new Button();
-	        mc.setLayoutX(400);
-	        mc.setLayoutY(600);
+	        mc.setLayoutX(380);
+	        mc.setLayoutY(620);
 	        mc.setText("Accès aux mouvement cash");
 	        mc.setFont(police);
 	        mc.setOnAction(new EventHandler<ActionEvent>() {
@@ -120,7 +124,7 @@ public class Octopus extends Application{
 	        
 	        Button dc = new Button();
 	        dc.setLayoutX(770);
-	        dc.setLayoutY(200);
+	        dc.setLayoutY(300);
 	        dc.setText("Accès au détail \n des comptes");
 	        dc.setFont(police);
 	        dc.setOnAction(new EventHandler<ActionEvent>() {
@@ -138,7 +142,7 @@ public class Octopus extends Application{
 	        
 	        Button rec = new Button();
 	        rec.setLayoutX(750);
-	        rec.setLayoutY(450);
+	        rec.setLayoutY(481);
 	        rec.setText("Accès au récapitulatif \n des comptes");
 	        rec.setFont(police);
 	        rec.setOnAction(new EventHandler<ActionEvent>() {
@@ -165,31 +169,49 @@ public class Octopus extends Application{
 	        //boutton d'ajout et de delete
 	        
 	        AjoutWindowRelation test = new AjoutWindowRelation(regRel, regCom);
-	        root.getChildren().add(test.creatButton());
+	        Button awr = test.creatButton();
+	        awr.setFont(police);
+	        root.getChildren().add(awr);
 	        
 	        DeleteWindowRelation test2 = new DeleteWindowRelation(regRel);
-	        root.getChildren().add(test2.creatButton());
+	        Button dwr = test2.creatButton();
+	        dwr.setFont(police);
+	        root.getChildren().add(dwr);
 	        
 	        AjoutMC test3 = new AjoutMC(regRel);
-	        root.getChildren().add(test3.creatButton());
+	        Button amc = test3.creatButton();
+	        amc.setFont(police);
+	        root.getChildren().add(amc);
 	        
 	        AjoutWindowCompte test4 = new AjoutWindowCompte(regCom);
-	        root.getChildren().add(test4.creatButton());
+	        Button awc = test4.creatButton();
+	        awc.setFont(police);
+	        root.getChildren().add(awc);
 	        
 	        DeleteWindowCompte test5 = new DeleteWindowCompte(regCom);
-	        root.getChildren().add(test5.creatButton());
+	        Button dwc = test5.creatButton();
+	        dwc.setFont(police);
+	        root.getChildren().add(dwc);
 	        
 	        AjoutWindowAdmDoc test6 = new AjoutWindowAdmDoc(regCom);
-	        root.getChildren().add(test6.creatButton());
+	        Button ado = test6.creatButton();
+	        ado.setFont(police);
+	        root.getChildren().add(ado);
 	        
 	        DeleteWindowAdmDoc test7 = new DeleteWindowAdmDoc(regCom);
-	        root.getChildren().add(test7.creatButton());
+	        Button ddo = test7.creatButton();
+	        ddo.setFont(police);
+	        root.getChildren().add(ddo);
 	        
 	        WindowLinkDocCom test8 = new WindowLinkDocCom(regCom);
-	        root.getChildren().add(test8.creatButton());
+	        Button lcd = test8.creatButton();
+	        lcd.setFont(police);
+	        root.getChildren().add(lcd);
 	        
 	        SecurityButton sauv = new SecurityButton();
-	        root.getChildren().add(sauv.creatButton());
+	        Button s = sauv.creatButton();
+	        s.setFont(police);
+	        root.getChildren().add(s);
 	        
 	        
 	        

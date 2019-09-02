@@ -29,7 +29,7 @@ public class AjoutWindowCompte {
 	{
 		Button but = new Button();
         but.setLayoutX(770);
-        but.setLayoutY(250);
+        but.setLayoutY(349);
         but.setText("Ajouter un compte");
         but.setOnAction(new EventHandler<ActionEvent>() {
 

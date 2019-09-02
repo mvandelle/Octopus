@@ -40,7 +40,7 @@ public class AjoutWindowAdmDoc {
 	{
 		Button but = new Button();
         but.setLayoutX(750);
-        but.setLayoutY(500);
+        but.setLayoutY(530);
         but.setText("Ajouter un document");
         but.setOnAction(new EventHandler<ActionEvent>() {
 

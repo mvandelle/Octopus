@@ -30,7 +30,7 @@ public class DeleteWindowAdmDoc {
 
 		Button but = new Button();
         but.setLayoutX(750);
-        but.setLayoutY(535);
+        but.setLayoutY(560);
         but.setText("Supprimer un document");
         
         but.setOnAction(new EventHandler<ActionEvent>() {

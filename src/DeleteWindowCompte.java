@@ -29,7 +29,7 @@ public class DeleteWindowCompte {
 	{
 		Button but = new Button();
         but.setLayoutX(770);
-        but.setLayoutY(285);
+        but.setLayoutY(379);
         but.setText("Supprimer un compte");
         but.setOnAction(new EventHandler<ActionEvent>() {
 

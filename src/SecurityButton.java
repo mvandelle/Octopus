@@ -41,7 +41,7 @@ public class SecurityButton {
 	{
 		Button but = new Button();
         but.setLayoutX(450);
-        but.setLayoutY(120);
+        but.setLayoutY(80);
         but.setText("Sauvegarder");
         
         but.setOnAction(new EventHandler<ActionEvent>() {

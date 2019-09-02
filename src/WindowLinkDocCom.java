@@ -21,7 +21,7 @@ public class WindowLinkDocCom {
 	{
 		Button but = new Button();
         but.setLayoutX(750);
-        but.setLayoutY(570);
+        but.setLayoutY(590);
         but.setText("Ajouter un lien \n"
         		+ "document/compte");
         but.setOnAction(new EventHandler<ActionEvent>() {
