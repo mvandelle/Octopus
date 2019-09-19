@@ -30,13 +30,13 @@ public class AjoutWindowCompte {
 		Button but = new Button();
         but.setLayoutX(770);
         but.setLayoutY(349);
-        but.setText("Ajouter un compte");
+        but.setText("Ajouter un prospect");
         but.setOnAction(new EventHandler<ActionEvent>() {
 
             public void handle(ActionEvent event) {
             	
             	Stage stageACom = new Stage();
-            	stageACom.setTitle("Nouveau compte");
+            	stageACom.setTitle("Nouveau prospect");
             	Group rootACom = new Group();
     	        Scene sceneACom= new Scene(rootACom, 700, 200, Color.WHITE);
             	

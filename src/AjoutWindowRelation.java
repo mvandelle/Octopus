@@ -187,7 +187,7 @@ public class AjoutWindowRelation {
 	     	        com.setMinWidth(200);
 	     	        com.setLayoutY(100);
 	     	        com.setLayoutX(100);
-	     	        com.setPromptText("Comptes preexistants");
+	     	        com.setPromptText("Prospects preexistants");
 	     	        
 	     	        com.setOnAction(new EventHandler<ActionEvent>() {
 

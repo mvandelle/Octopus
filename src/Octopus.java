@@ -32,7 +32,7 @@ public class Octopus extends Application{
 	private static RegistreCompte regCom;
 	
 	public void start(Stage primaryStage) throws IOException {
-		 	primaryStage.setTitle("Octopus 1.0");
+		 	primaryStage.setTitle("Octopus 1.1");
 		 
 		 
 		
@@ -125,7 +125,7 @@ public class Octopus extends Application{
 	        Button dc = new Button();
 	        dc.setLayoutX(770);
 	        dc.setLayoutY(300);
-	        dc.setText("Accès au détail \n des comptes");
+	        dc.setText("Accès au détail \n des prospects");
 	        dc.setFont(police);
 	        dc.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -143,7 +143,7 @@ public class Octopus extends Application{
 	        Button rec = new Button();
 	        rec.setLayoutX(750);
 	        rec.setLayoutY(481);
-	        rec.setText("Accès au récapitulatif \n des comptes");
+	        rec.setText("Accès au récapitulatif \n doc LBA");
 	        rec.setFont(police);
 	        rec.setOnAction(new EventHandler<ActionEvent>() {
 

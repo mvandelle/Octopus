@@ -295,7 +295,7 @@ public class RegistreCompte {
 		Row row_0 = feuille.createRow((short) 0);
 		Cell cell0_5 = row_0.createCell(5);
 		cell0_5.setCellStyle(st1);
-		cell0_5.setCellValue("Recapitulatif des comptes");
+		cell0_5.setCellValue("Recapitulatif des prospects");
 		
 		Row row_3 = feuille.createRow((short) 3);
 		

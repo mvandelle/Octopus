@@ -30,13 +30,13 @@ public class DeleteWindowCompte {
 		Button but = new Button();
         but.setLayoutX(770);
         but.setLayoutY(379);
-        but.setText("Supprimer un compte");
+        but.setText("Supprimer un prospect");
         but.setOnAction(new EventHandler<ActionEvent>() {
 
             public void handle(ActionEvent event) {
             	
             	Stage stageDCom = new Stage();
-            	stageDCom.setTitle("Supprimer compte");
+            	stageDCom.setTitle("Supprimer prospect");
             	Group rootDCom = new Group();
     	        Scene sceneDCom= new Scene(rootDCom, 700, 200, Color.WHITE);
             	

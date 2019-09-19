@@ -23,7 +23,7 @@ public class WindowLinkDocCom {
         but.setLayoutX(750);
         but.setLayoutY(590);
         but.setText("Ajouter un lien \n"
-        		+ "document/compte");
+        		+ "document/prospect");
         but.setOnAction(new EventHandler<ActionEvent>() {
 
             public void handle(ActionEvent event) {

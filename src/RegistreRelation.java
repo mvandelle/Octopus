@@ -182,8 +182,10 @@ public class RegistreRelation {
 		FileInputStream fichier = new FileInputStream("OC.xlsx");
 		XSSFWorkbook wb = new XSSFWorkbook(fichier);
 		XSSFSheet sheet = wb.getSheetAt(0);
+		XSSFSheet sheet1 = wb.getSheetAt(1);
 		boolean OCDexist = false;
-		if ( sheet.getLastRowNum()<2)
+		System.out.println(sheet.getLastRowNum()); 
+		if ( sheet.getLastRowNum()<=3 && sheet1.getLastRowNum()<=3)
 		{
 			OCDexist = true;
 		} 
@@ -198,7 +200,8 @@ public class RegistreRelation {
 		XSSFWorkbook wb = new XSSFWorkbook(fichier);
 		XSSFSheet sheet = wb.getSheetAt(0);
 		boolean MCDexist = false;
-		if ( sheet.getLastRowNum()<2)
+		
+		if ( sheet.getLastRowNum()<=3)
 		{
 			MCDexist = true;
 		} 
