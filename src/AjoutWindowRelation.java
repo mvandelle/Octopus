@@ -83,26 +83,61 @@ public class AjoutWindowRelation {
 	    	        date.setPromptText("Date naissance");
 	    	        rootARel.getChildren().add(date);
 	    	        
+	    	        TextField adr = new TextField();
+	    	        adr.setMaxWidth(100);
+	    	        adr.setLayoutY(30);
+	    	        adr.setLayoutX(0);
+	    	        adr.setPromptText("Adresse");
+	    	        rootARel.getChildren().add(adr);
+	    	        
 	    	        TextField leg = new TextField();
 	    	        leg.setMaxWidth(100);
 	    	        leg.setLayoutY(30);
-	    	        leg.setLayoutX(0);
+	    	        leg.setLayoutX(100);
 	    	        leg.setPromptText("Legitimation");
 	    	        rootARel.getChildren().add(leg);
+	    	        
+	    	        TextField sieg = new TextField();
+	    	        sieg.setMaxWidth(100);
+	    	        sieg.setLayoutY(30);
+	    	        sieg.setLayoutX(200);
+	    	        sieg.setPromptText("Siège social");
+	    	        rootARel.getChildren().add(sieg);
+	    	        
+	    	        TextField reg = new TextField();
+	    	        reg.setMaxWidth(100);
+	    	        reg.setLayoutY(30);
+	    	        reg.setLayoutX(300);
+	    	        reg.setPromptText("Reg act.");
+	    	        rootARel.getChildren().add(reg);
 	    	        
 	    	        TextField nat = new TextField();
 	    	        nat.setMaxWidth(100);
 	    	        nat.setLayoutY(30);
-	    	        nat.setLayoutX(100);
+	    	        nat.setLayoutX(400);
 	    	        nat.setPromptText("Nationalité");
 	    	        rootARel.getChildren().add(nat);
 	    	        
 	    	        TextField resi = new TextField();
 	    	        resi.setMaxWidth(100);
 	    	        resi.setLayoutY(30);
-	    	        resi.setLayoutX(200);
+	    	        resi.setLayoutX(500);
 	    	        resi.setPromptText("Résidence");
 	    	        rootARel.getChildren().add(resi);
+	    	        
+	    	        TextField det = new TextField();
+	    	        det.setMaxWidth(100);
+	    	        det.setLayoutY(30);
+	    	        det.setLayoutX(600);
+	    	        det.setPromptText("Detenteur compte");
+	    	        rootARel.getChildren().add(det);
+	    	        
+	    	        TextField eu = new TextField();
+	    	        eu.setMaxWidth(100);
+	    	        eu.setLayoutY(60);
+	    	        eu.setLayoutX(0);
+	    	        eu.setPromptText("Client Europ");
+	    	        rootARel.getChildren().add(eu);
 	    	        
 	    	        ObservableList<String> options = 
 	    	        	    FXCollections.observableArrayList(
@@ -111,71 +146,71 @@ public class AjoutWindowRelation {
 	    	        	        );
 	    	        ComboBox risk = new ComboBox(options);
 	    	        risk.setMinWidth(100);
-	    	        risk.setLayoutY(30);
-	    	        risk.setLayoutX(300);
+	    	        risk.setLayoutY(60);
+	    	        risk.setLayoutX(100);
 	    	        risk.setPromptText("Risque");
 	    	        rootARel.getChildren().add(risk);
 	    	        
 	    	        TextField entre = new TextField();
 	    	        entre.setMaxWidth(100);
-	    	        entre.setLayoutY(30);
-	    	        entre.setLayoutX(400);
+	    	        entre.setLayoutY(60);
+	    	        entre.setLayoutX(200);
 	    	        entre.setPromptText("Entré en relation");
 	    	        rootARel.getChildren().add(entre);
 	    	        
 	    	        TextField dernier = new TextField();
 	    	        dernier.setMaxWidth(100);
-	    	        dernier.setLayoutY(30);
-	    	        dernier.setLayoutX(500);
+	    	        dernier.setLayoutY(60);
+	    	        dernier.setLayoutX(300);
 	    	        dernier.setPromptText("Dernier contact");
 	    	        rootARel.getChildren().add(dernier);
 	    	        
 	    	        TextField profil = new TextField();
 	    	        profil.setMaxWidth(100);
-	    	        profil.setLayoutY(30);
-	    	        profil.setLayoutX(600);
+	    	        profil.setLayoutY(60);
+	    	        profil.setLayoutX(400);
 	    	        profil.setPromptText("Profil");
 	    	        rootARel.getChildren().add(profil);
 	    	        
 	    	        TextField comG = new TextField();
 	    	        comG.setMaxWidth(100);
 	    	        comG.setLayoutY(60);
-	    	        comG.setLayoutX(0);
+	    	        comG.setLayoutX(500);
 	    	        comG.setPromptText("% Com Gest");
 	    	        rootARel.getChildren().add(comG);
 	    	        
 	    	        TextField comP = new TextField();
 	    	        comP.setMaxWidth(100);
 	    	        comP.setLayoutY(60);
-	    	        comP.setLayoutX(100);
+	    	        comP.setLayoutX(600);
 	    	        comP.setPromptText("% Com Perf");
 	    	        rootARel.getChildren().add(comP);
 	    	        
 	    	        TextField devise = new TextField();
 	    	        devise.setMaxWidth(100);
-	    	        devise.setLayoutY(60);
-	    	        devise.setLayoutX(200);
+	    	        devise.setLayoutY(90);
+	    	        devise.setLayoutX(0);
 	    	        devise.setPromptText("Devise");
 	    	        rootARel.getChildren().add(devise);
 	    	        
 	    	        TextField soldeD = new TextField();
 	    	        soldeD.setMaxWidth(100);
-	    	        soldeD.setLayoutY(60);
-	    	        soldeD.setLayoutX(300);
+	    	        soldeD.setLayoutY(90);
+	    	        soldeD.setLayoutX(100);
 	    	        soldeD.setPromptText("Solde début");
 	    	        rootARel.getChildren().add(soldeD);
 	    	        
 	    	        TextField soldeF = new TextField();
 	    	        soldeF.setMaxWidth(100);
-	    	        soldeF.setLayoutY(60);
-	    	        soldeF.setLayoutX(400);
+	    	        soldeF.setLayoutY(90);
+	    	        soldeF.setLayoutX(200);
 	    	        soldeF.setPromptText("Solde fin");
 	    	        rootARel.getChildren().add(soldeF);
 	    	        
 	    	        TextField dateO = new TextField();
 	    	        dateO.setMaxWidth(100);
-	    	        dateO.setLayoutY(60);
-	    	        dateO.setLayoutX(500);
+	    	        dateO.setLayoutY(90);
+	    	        dateO.setLayoutX(300);
 	    	        dateO.setPromptText("Date ouverture");
 	    	        rootARel.getChildren().add(dateO);
 	    	        
@@ -185,7 +220,7 @@ public class AjoutWindowRelation {
 	     	        	        );
 	     	        ComboBox<String> com = new ComboBox<String>(optionsCom);
 	     	        com.setMinWidth(200);
-	     	        com.setLayoutY(100);
+	     	        com.setLayoutY(150);
 	     	        com.setLayoutX(100);
 	     	        com.setPromptText("Prospects preexistants");
 	     	        
@@ -298,6 +333,15 @@ public class AjoutWindowRelation {
 								sdate = date.getCharacters().toString();
 							}
 							
+							String sAd;
+							if ( adr.getCharacters().toString().equals(""))
+							{
+								sAd = "Non renseigné";
+							} else
+							{
+								sAd = adr.getCharacters().toString();
+							}
+							
 							String sleg;
 							if (leg.getCharacters().toString().equals(""))
 							{
@@ -306,6 +350,24 @@ public class AjoutWindowRelation {
 							} else
 							{
 								sleg = leg.getCharacters().toString();
+							}
+							
+							String sSieg;
+							if ( sieg.getCharacters().toString().equals(""))
+							{
+								sSieg = "Non renseigné";
+							} else
+							{
+								sSieg = sieg.getCharacters().toString();
+							}
+							
+							String sReg;
+							if ( reg.getCharacters().toString().equals(""))
+							{
+								sReg = "Non renseigné";
+							} else
+							{
+								sReg = reg.getCharacters().toString();
 							}
 							
 							String snat;
@@ -327,6 +389,27 @@ public class AjoutWindowRelation {
 							{
 								sresi = resi.getCharacters().toString();
 							}
+							
+							String sdet;
+							if (det.getCharacters().toString().equals(""))
+							{
+								sdet = "Non rensigné";
+							
+							} else
+							{
+								sdet = det.getCharacters().toString();
+							}
+							
+							String seu;
+							if (eu.getCharacters().toString().equals(""))
+							{
+								seu = "Non rensigné";
+							
+							} else
+							{
+								seu = eu.getCharacters().toString();
+							}
+							
 							
 							String sentre;
 							if (entre.getCharacters().toString().equals(""))
@@ -432,7 +515,7 @@ public class AjoutWindowRelation {
 								}
 							}
 							
-							Relation newR = new Relation(sgest, sinti, snC, sbank, snom, sprenom, sdate, sleg, snat, sresi, brisk, sentre, sdernier, sprofil, scomG, scomP, sdevise, ssoldeD, ssoldeF);
+							Relation newR = new Relation(sgest, sinti, snC, sbank, snom, sprenom, sdate, sAd, sleg, sSieg, sReg, snat, sresi, sdet, seu, brisk, sentre, sdernier, sprofil, scomG, scomP, sdevise, ssoldeD, ssoldeF, true);
 							try {
 								r.addRelation(newR, dateO.getCharacters().toString());
 							} catch (IOException e) {

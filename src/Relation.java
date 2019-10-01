@@ -7,9 +7,14 @@ public class Relation implements Comparable {
 	private String nom;
 	private String prenom;
 	private String date;
+	private String adresse;
 	private String legitimation;
+	private String siege;
+	private String regact;
 	private String nationalite;
 	private String residence;
+	private String det;
+	private String eu;
 	private boolean risque;
 	private String entre;
 	private String dernier;
@@ -19,11 +24,12 @@ public class Relation implements Comparable {
 	private String monnaie;
 	private String soldeDeb;
 	private String soldeFin;
-	private String adresse;
+	
+	private boolean isAlive;
 
 	public Relation(String gestionnaire, String intitule, String nCompte, String banque, String nom, String prenom,
-			String date, String legislation, String nationalite, String residence, boolean risque, String entre,
-			String dernier, String profil, String comGest, String comPerf, String monnaie, String soldeDeb, String soldeFin) {
+			String date,String adresse, String legislation,String siege,String regact, String nationalite, String residence,String det, String eu, boolean risque, String entre,
+			String dernier, String profil, String comGest, String comPerf, String monnaie, String soldeDeb, String soldeFin, boolean isAlive) {
 		this.gestionnaire = gestionnaire;
 		this.intitule = intitule;
 		this.nCompte = nCompte;
@@ -31,9 +37,14 @@ public class Relation implements Comparable {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.date = date;
+		this.adresse = adresse;
 		this.legitimation = legislation;
+		this.siege = siege;
+		this.regact = regact;
 		this.nationalite = nationalite;
 		this.residence = residence;
+		this.det = det;
+		this.eu = eu;
 		this.risque = risque;
 		this.entre = entre;
 		this.dernier = dernier;
@@ -43,8 +54,9 @@ public class Relation implements Comparable {
 		this.monnaie = monnaie;
 		this.soldeDeb = soldeDeb;
 		this.soldeFin = soldeFin;
+		this.isAlive = isAlive;
 	}
-
+	
 	
 
 	public Relation() {
@@ -55,6 +67,16 @@ public class Relation implements Comparable {
 	{
 		this.intitule = c.getIntitule();
 		
+	}
+	
+	public boolean getAlive()
+	{
+		return isAlive;
+	}
+	
+	public void setAlive(boolean a)
+	{
+		isAlive = a;
 	}
 	
 	public String getAdresse()
@@ -223,6 +245,46 @@ public class Relation implements Comparable {
 
 	public String toString() {
 		return nCompte+ " " + intitule;
+	}
+	
+	public String getSiege()
+	{
+		return siege;
+	}
+	
+	public void setSiege(String s)
+	{
+		siege = s;
+	}
+	
+	public String getReg()
+	{
+		return regact;
+	}
+	
+	public void setReg(String s)
+	{
+		regact = s;
+	}
+	
+	public String getDet()
+	{
+		return det;
+	}
+	
+	public void setDet(String d)
+	{
+		det = d;
+	}
+	
+	public String getEu()
+	{
+		return eu;
+	}
+	
+	public void setEu(String e)
+	{
+		eu = e;
 	}
 	
 	

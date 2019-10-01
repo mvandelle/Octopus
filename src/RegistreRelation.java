@@ -11,6 +11,7 @@ import java.io.IOException;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
@@ -184,7 +185,8 @@ public class RegistreRelation {
 		XSSFSheet sheet = wb.getSheetAt(0);
 		XSSFSheet sheet1 = wb.getSheetAt(1);
 		boolean OCDexist = false;
-		System.out.println(sheet.getLastRowNum()); 
+		
+	
 		if ( sheet.getLastRowNum()<=3 && sheet1.getLastRowNum()<=3)
 		{
 			OCDexist = true;
@@ -217,9 +219,10 @@ public class RegistreRelation {
 		XSSFWorkbook wb = new XSSFWorkbook(fichier);
 		XSSFSheet sheet = wb.getSheetAt(0);
 		DataFormatter stri = new DataFormatter();
+		
 		for (Row ligne : sheet) {
 			Relation t = new Relation();
-			if (ligne.getRowNum() >= 3) {
+			if (ligne.getRowNum() >= 3 && !ligne.getCell(4).getStringCellValue().equals("")) {
 				
 				t.setGestionnaire(stri.formatCellValue(ligne.getCell(0)));
 				t.setIntitule(stri.formatCellValue(ligne.getCell(1)));
@@ -230,29 +233,46 @@ public class RegistreRelation {
 				t.setDate(stri.formatCellValue(ligne.getCell(6)));
 				t.setAdresse(stri.formatCellValue(ligne.getCell(7)));
 				t.setLegitimation(stri.formatCellValue(ligne.getCell(8)));
-				t.setNationalite(stri.formatCellValue(ligne.getCell(9)));
-				t.setResidence(stri.formatCellValue(ligne.getCell(10)));
+				t.setSiege(stri.formatCellValue(ligne.getCell(9)));
+				t.setReg(stri.formatCellValue(ligne.getCell(10)));
+				t.setNationalite(stri.formatCellValue(ligne.getCell(11)));
+				t.setResidence(stri.formatCellValue(ligne.getCell(12)));
+				t.setDet(stri.formatCellValue(ligne.getCell(13)));
+				t.setEu(stri.formatCellValue(ligne.getCell(14)));
 				
-				if ( ligne.getCell(11).getCellType() == CellType.BOOLEAN)
+				if(ligne.getCell(15) != null)
 				{
-				if (ligne.getCell(11).getBooleanCellValue() == false) {
+				if (ligne.getCell(15).getBooleanCellValue() == false) {
 					t.setRisque(false);
 				} else {
 					t.setRisque(true);
 				}
+				}
+				 
+				t.setEntre(stri.formatCellValue(ligne.getCell(16)));
+				t.setDernier(stri.formatCellValue(ligne.getCell(17)));
+				t.setProfil(stri.formatCellValue(ligne.getCell(18)));
+				t.setComGest(stri.formatCellValue(ligne.getCell(19)));
+				t.setComPerf(stri.formatCellValue(ligne.getCell(20)));
+				t.setMonnaie(stri.formatCellValue(ligne.getCell(21)));
+				t.setSoldeDeb(stri.formatCellValue(ligne.getCell(22)));
+				t.setSoldeFin(stri.formatCellValue(ligne.getCell(23)));
+				
+				if(ligne.getCell(24) != null)
+				{
+				if ( ligne.getCell(24).getStringCellValue().equals("cloturé"))
+				{
+					t.setAlive(false);
 				} else
 				{
-					t.setRisque(false);
+					t.setAlive(true);
 				}
-				t.setEntre(stri.formatCellValue(ligne.getCell(12)));
-				t.setDernier(stri.formatCellValue(ligne.getCell(13)));
-				t.setProfil(stri.formatCellValue(ligne.getCell(14)));
-				t.setComGest(stri.formatCellValue(ligne.getCell(15)));
-				t.setComPerf(stri.formatCellValue(ligne.getCell(16)));
-				t.setMonnaie(stri.formatCellValue(ligne.getCell(17)));
-				t.setSoldeDeb(stri.formatCellValue(ligne.getCell(18)));
-				t.setSoldeFin(stri.formatCellValue(ligne.getCell(19)));
+				} else
+				{
+					t.setAlive(true);
+				}
 				
+				//t.setAlive(true);
 				r.add(t);
 
 			}
@@ -286,6 +306,15 @@ public class RegistreRelation {
 		st2.setFillForegroundColor(IndexedColors.GOLD.index);
 		st2.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 		st2.setAlignment(HorizontalAlignment.CENTER);
+		
+		XSSFCellStyle st3 = wb.createCellStyle();
+		XSSFFont f3 = wb.createFont();
+		f3.setBold(true);
+		f3.setFontHeightInPoints((short) 12);
+		f3.setColor(IndexedColors.RED.index);
+		st3.setFont(f3);
+		st3.setAlignment(HorizontalAlignment.CENTER);
+		
 		
 		Row rowT = feuille.createRow((short) 0);
 		Cell cell5 = rowT.createCell(5);
@@ -321,50 +350,157 @@ public class RegistreRelation {
 		Cell cell2_8 = row2.createCell(8);
 		cell2_8.setCellStyle(st2);
 		cell2_8.setCellValue("Légitimation");
+		
 		Cell cell2_9 = row2.createCell(9);
 		cell2_9.setCellStyle(st2);
-		cell2_9.setCellValue("Nationalité");
+		cell2_9.setCellValue("Siège social");
+		
 		Cell cell2_10 = row2.createCell(10);
 		cell2_10.setCellStyle(st2);
-		cell2_10.setCellValue("Résidence");
+		cell2_10.setCellValue("Reg. act");
+		
 		Cell cell2_11 = row2.createCell(11);
 		cell2_11.setCellStyle(st2);
-		cell2_11.setCellValue("Risque");
+		cell2_11.setCellValue("Nationalité");
 		Cell cell2_12 = row2.createCell(12);
 		cell2_12.setCellStyle(st2);
-		cell2_12.setCellValue("Entrée en relation");
+		cell2_12.setCellValue("Résidence");
+		
 		Cell cell2_13 = row2.createCell(13);
 		cell2_13.setCellStyle(st2);
-		cell2_13.setCellValue("Dernier contact");
+		cell2_13.setCellValue("Détenteur compte");
+		
 		Cell cell2_14 = row2.createCell(14);
 		cell2_14.setCellStyle(st2);
-		cell2_14.setCellValue("Profil");
+		cell2_14.setCellValue("Client Europe");
+		
 		Cell cell2_15 = row2.createCell(15);
 		cell2_15.setCellStyle(st2);
-		cell2_15.setCellValue("% ComGest");
+		cell2_15.setCellValue("Risque");
 		Cell cell2_16 = row2.createCell(16);
 		cell2_16.setCellStyle(st2);
-		cell2_16.setCellValue("% ComPerf");
+		cell2_16.setCellValue("Entrée en relation");
 		Cell cell2_17 = row2.createCell(17);
 		cell2_17.setCellStyle(st2);
-		cell2_17.setCellValue("Monnaie ref.");
+		cell2_17.setCellValue("Dernier contact");
 		Cell cell2_18 = row2.createCell(18);
 		cell2_18.setCellStyle(st2);
-		cell2_18.setCellValue("Solde initial");
+		cell2_18.setCellValue("Profil");
 		Cell cell2_19 = row2.createCell(19);
 		cell2_19.setCellStyle(st2);
-		cell2_19.setCellValue("Solde final");
+		cell2_19.setCellValue("% ComGest");
+		Cell cell2_20 = row2.createCell(20);
+		cell2_20.setCellStyle(st2);
+		cell2_20.setCellValue("% ComPerf");
+		Cell cell2_21 = row2.createCell(21);
+		cell2_21.setCellStyle(st2);
+		cell2_21.setCellValue("Monnaie ref.");
+		Cell cell2_22 = row2.createCell(22);
+		cell2_22.setCellStyle(st2);
+		cell2_22.setCellValue("Solde initial");
+		Cell cell2_23 = row2.createCell(23);
+		cell2_23.setCellStyle(st2);
+		cell2_23.setCellValue("Solde final");
 		
 		
 		
 		
-		for (int i = 0; i <= 19; ++i)
+		for (int i = 0; i <= 23; ++i)
 		{
 			feuille.setColumnWidth(i, 20 * 256);
 		}
 		
 		for (int i = 0; i < r.size(); ++i) {
+			
+
+			
 			Row row = feuille.createRow(i+3);
+			if (r.get(i).getAlive() == false)
+			{
+				Cell cellred_0 = row.createCell(0);
+				cellred_0.setCellStyle(st3);
+				cellred_0.setCellValue(r.get(i).getGestionnaire());
+				Cell cellred_1 = row.createCell(1);
+				cellred_1.setCellStyle(st3);
+				cellred_1.setCellValue(r.get(i).getIntitule());
+				Cell cellred_2 = row.createCell(2);
+				cellred_2.setCellStyle(st3);
+				cellred_2.setCellValue(r.get(i).getnCompte());
+				Cell cellred_3 = row.createCell(3);
+				cellred_3.setCellStyle(st3);
+				cellred_3.setCellValue(r.get(i).getBanque());
+				Cell cellred_4 = row.createCell(4);
+				cellred_4.setCellStyle(st3);
+				cellred_4.setCellValue(r.get(i).getNom());
+				Cell cellred_5 = row.createCell(5);
+				cellred_5.setCellStyle(st3);
+				cellred_5.setCellValue(r.get(i).getPrenom());
+				Cell cellred_6 = row.createCell(6);
+				cellred_6.setCellStyle(st3);
+				cellred_6.setCellValue(r.get(i).getDate());
+				Cell cellred_7 = row.createCell(7);
+				cellred_7.setCellStyle(st3);
+				cellred_7.setCellValue(r.get(i).getAdresse());
+				Cell cellred_8 = row.createCell(8);
+				cellred_8.setCellStyle(st3);
+				cellred_8.setCellValue(r.get(i).getLegitimation());
+				
+				Cell cellred_9 = row.createCell(9);
+				cellred_9.setCellStyle(st3);
+				cellred_9.setCellValue(r.get(i).getSiege());
+				
+				Cell cellred_10 = row.createCell(10);
+				cellred_10.setCellStyle(st3);
+				cellred_10.setCellValue(r.get(i).getReg());
+				
+				Cell cellred_11 = row.createCell(11);
+				cellred_11.setCellStyle(st3);
+				cellred_11.setCellValue(r.get(i).getNationalite());
+				Cell cellred_12 = row.createCell(12);
+				cellred_12.setCellStyle(st3);
+				cellred_12.setCellValue(r.get(i).getResidence());
+				
+				Cell cellred_13 = row.createCell(13);
+				cellred_13.setCellStyle(st3);
+				cellred_13.setCellValue(r.get(i).getDet());
+				
+				Cell cellred_14 = row.createCell(14);
+				cellred_14.setCellStyle(st3);
+				cellred_14.setCellValue(r.get(i).getEu());
+				
+				Cell cellred_15 = row.createCell(15);
+				cellred_15.setCellStyle(st3);
+				cellred_15.setCellValue(r.get(i).isRisque());
+				Cell cellred_16 = row.createCell(16);
+				cellred_16.setCellStyle(st3);
+				cellred_16.setCellValue(r.get(i).getEntre());
+				Cell cellred_17 = row.createCell(17);
+				cellred_17.setCellStyle(st3);
+				cellred_17.setCellValue(r.get(i).getDernier());
+				Cell cellred_18 = row.createCell(18);
+				cellred_18.setCellStyle(st3);
+				cellred_18.setCellValue(r.get(i).getProfil());
+				Cell cellred_19 = row.createCell(19);
+				cellred_19.setCellStyle(st3);
+				cellred_19.setCellValue(r.get(i).getComGest());
+				Cell cellred_20 = row.createCell(20);
+				cellred_20.setCellStyle(st3);
+				cellred_20.setCellValue(r.get(i).getComPerf());
+				Cell cellred_21 = row.createCell(21);
+				cellred_21.setCellStyle(st3);
+				cellred_21.setCellValue(r.get(i).getMonnaie());
+				Cell cellred_22 = row.createCell(22);
+				cellred_22.setCellStyle(st3);
+				cellred_22.setCellValue(r.get(i).getSoldeDeb());
+				Cell cellred_23 = row.createCell(23);
+				cellred_23.setCellStyle(st3);
+				cellred_23.setCellValue(r.get(i).getSoldeFin());
+				Cell cellred_24 = row.createCell(24);
+				cellred_24.setCellStyle(st3);
+				cellred_24.setCellValue("cloturé");
+				
+			}else
+			{
 			row.createCell(0).setCellValue(r.get(i).getGestionnaire());
 			row.createCell(1).setCellValue(r.get(i).getIntitule());
 			row.createCell(2).setCellValue(r.get(i).getnCompte());
@@ -374,17 +510,26 @@ public class RegistreRelation {
 			row.createCell(6).setCellValue(r.get(i).getDate());
 			row.createCell(7).setCellValue(r.get(i).getAdresse());
 			row.createCell(8).setCellValue(r.get(i).getLegitimation());
-			row.createCell(9).setCellValue(r.get(i).getNationalite());
-			row.createCell(10).setCellValue(r.get(i).getResidence());
-			row.createCell(11).setCellValue(r.get(i).isRisque());
-			row.createCell(12).setCellValue(r.get(i).getEntre());
-			row.createCell(13).setCellValue(r.get(i).getDernier());
-			row.createCell(14).setCellValue(r.get(i).getProfil());
-			row.createCell(15).setCellValue(r.get(i).getComGest());
-			row.createCell(16).setCellValue(r.get(i).getComPerf());
-			row.createCell(17).setCellValue(r.get(i).getMonnaie());
-			row.createCell(18).setCellValue(r.get(i).getSoldeDeb());
-			row.createCell(19).setCellValue(r.get(i).getSoldeFin());
+			
+			row.createCell(9).setCellValue(r.get(i).getSiege());
+			row.createCell(10).setCellValue(r.get(i).getReg());
+			
+			row.createCell(11).setCellValue(r.get(i).getNationalite());
+			row.createCell(12).setCellValue(r.get(i).getResidence());
+			
+			row.createCell(13).setCellValue(r.get(i).getDet());
+			row.createCell(14).setCellValue(r.get(i).getEu());
+			
+			row.createCell(15).setCellValue(r.get(i).isRisque());
+			row.createCell(16).setCellValue(r.get(i).getEntre());
+			row.createCell(17).setCellValue(r.get(i).getDernier());
+			row.createCell(18).setCellValue(r.get(i).getProfil());
+			row.createCell(19).setCellValue(r.get(i).getComGest());
+			row.createCell(20).setCellValue(r.get(i).getComPerf());
+			row.createCell(21).setCellValue(r.get(i).getMonnaie());
+			row.createCell(22).setCellValue(r.get(i).getSoldeDeb());
+			row.createCell(23).setCellValue(r.get(i).getSoldeFin());
+			}
 		}
 
 		FileOutputStream fileOut;
@@ -459,8 +604,7 @@ public class RegistreRelation {
 					e.printStackTrace();
 				}
 
-				r.remove(i);
-				i = i - 1;
+				r.get(i).setAlive(false);
 			}
 
 		}
