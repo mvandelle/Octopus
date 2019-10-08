@@ -45,7 +45,10 @@ public class RegistreRelation {
 		ArrayList<String> l = new ArrayList<>();
 		for ( int i = 0; i < r.size(); ++i)
 		{
-			l.add(r.get(i).toString());
+			if ( r.get(i).getAlive())
+			{
+				l.add(r.get(i).toString());
+			}
 		}
 		return l;
 	}
