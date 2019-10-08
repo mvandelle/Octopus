@@ -49,8 +49,25 @@ public class RegistreRelation {
 			{
 				l.add(r.get(i).toString());
 			}
+			
 		}
 		return l;
+	}
+	
+	public int findRelationIndex(String a)
+	{
+		int space = a.indexOf(" ");
+		String nc = a.substring(0,space);
+		int index = 0;
+		System.out.println(nc);
+		for ( int i = 0; i < r.size(); ++i)
+		{
+			if (r.get(i).getnCompte().equals(nc))
+			{
+				index = i;
+			}
+		}
+		return index;
 	}
 
 	public void creatOc() throws IOException {

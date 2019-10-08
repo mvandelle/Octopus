@@ -69,6 +69,7 @@ public class DeleteWindowRelation {
 					public void handle(ActionEvent event) {
 						
 						int index = c.getSelectionModel().getSelectedIndex();
+					
 						if ( date.getCharacters().toString().equals(""))
 						{
 							Text error = new Text (300, 130, "Date manquante");
@@ -83,7 +84,9 @@ public class DeleteWindowRelation {
 						} else
 						{
 							try {
-								r.removeRelation(r.getR().get(index).getnCompte(), date.getCharacters().toString());
+								String selectedRelation = options.get(index);
+								int index2 = r.findRelationIndex(selectedRelation)
+;								r.removeRelation(r.getR().get(index2).getnCompte(), date.getCharacters().toString());
 							} catch (IOException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();

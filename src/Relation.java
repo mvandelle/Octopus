@@ -244,6 +244,7 @@ public class Relation implements Comparable {
 	}
 
 	public String toString() {
+		
 		return nCompte+ " " + intitule;
 	}
 	
