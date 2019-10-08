@@ -169,7 +169,7 @@ public class RegistreRelation {
 
 		FileOutputStream fileOut;
 		try {
-			fileOut = new FileOutputStream("OC.xlsx");
+			fileOut = new FileOutputStream("OuvertureCloture.xlsx");
 			wb.write(fileOut);
 			fileOut.close();
 		} catch (FileNotFoundException e) {
@@ -183,7 +183,7 @@ public class RegistreRelation {
 	
 	public boolean storeOC() throws IOException
 	{
-		FileInputStream fichier = new FileInputStream("OC.xlsx");
+		FileInputStream fichier = new FileInputStream("OuvertureCloture.xlsx");
 		XSSFWorkbook wb = new XSSFWorkbook(fichier);
 		XSSFSheet sheet = wb.getSheetAt(0);
 		XSSFSheet sheet1 = wb.getSheetAt(1);
@@ -201,7 +201,7 @@ public class RegistreRelation {
 	
 	public boolean storeMC() throws IOException
 	{
-		FileInputStream fichier = new FileInputStream("MC.xlsx");
+		FileInputStream fichier = new FileInputStream("MouvementCash.xlsx");
 		XSSFWorkbook wb = new XSSFWorkbook(fichier);
 		XSSFSheet sheet = wb.getSheetAt(0);
 		boolean MCDexist = false;
@@ -218,7 +218,7 @@ public class RegistreRelation {
 
 	public void storeRelation() throws InvalidFormatException, IOException {
 
-		FileInputStream fichier = new FileInputStream("Registre relation.xlsx");
+		FileInputStream fichier = new FileInputStream("RegistreRelation.xlsx");
 		XSSFWorkbook wb = new XSSFWorkbook(fichier);
 		XSSFSheet sheet = wb.getSheetAt(0);
 		DataFormatter stri = new DataFormatter();
@@ -537,7 +537,7 @@ public class RegistreRelation {
 
 		FileOutputStream fileOut;
 		try {
-			fileOut = new FileOutputStream("Registre relation.xlsx");
+			fileOut = new FileOutputStream("RegistrerRelation.xlsx");
 			wb.write(fileOut);
 			fileOut.close();
 		} catch (FileNotFoundException e) {
@@ -551,7 +551,7 @@ public class RegistreRelation {
 		r.add(relation);
 		this.writeNewFile();
 
-		FileInputStream fichier = new FileInputStream("OC.xlsx");
+		FileInputStream fichier = new FileInputStream("OuvertureCloture.xlsx");
 		XSSFWorkbook wb = new XSSFWorkbook(fichier);
 		XSSFSheet sheet = wb.getSheetAt(0);
 
@@ -568,7 +568,7 @@ public class RegistreRelation {
 
 		FileOutputStream fileOut;
 		try {
-			fileOut = new FileOutputStream("OC.xlsx");
+			fileOut = new FileOutputStream("OuvertureCloture.xlsx");
 			wb.write(fileOut);
 			fileOut.close();
 		} catch (FileNotFoundException e) {
@@ -581,7 +581,7 @@ public class RegistreRelation {
 	public void removeRelation(String nCompte, String date) throws IOException {
 		for (int i = 0; i < r.size(); ++i) {
 			if (r.get(i).getnCompte().equals(nCompte)) {
-				FileInputStream fichier = new FileInputStream("OC.xlsx");
+				FileInputStream fichier = new FileInputStream("OuvertureCloture.xlsx");
 				XSSFWorkbook wb = new XSSFWorkbook(fichier);
 				XSSFSheet sheet = wb.getSheetAt(1);
 
@@ -598,7 +598,7 @@ public class RegistreRelation {
 
 				FileOutputStream fileOut;
 				try {
-					fileOut = new FileOutputStream("OC.xlsx");
+					fileOut = new FileOutputStream("OuvertureCloture.xlsx");
 					wb.write(fileOut);
 					fileOut.close();
 				} catch (FileNotFoundException e) {
@@ -690,7 +690,7 @@ public class RegistreRelation {
 		
 		FileOutputStream fileOut;
 		try {
-			fileOut = new FileOutputStream("MC.xlsx");
+			fileOut = new FileOutputStream("MouvementCash.xlsx");
 			wb.write(fileOut);
 			fileOut.close();
 		} catch (FileNotFoundException e) {
@@ -705,7 +705,7 @@ public class RegistreRelation {
 	
 	public void MouvementCash(String date, String devise, boolean in, double montant, String mode, String motif, Relation rel) throws IOException
 	{
-		FileInputStream fichier = new FileInputStream("MC.xlsx");
+		FileInputStream fichier = new FileInputStream("MouvementCash.xlsx");
 		XSSFWorkbook wb = new XSSFWorkbook(fichier);
 		XSSFSheet sheet = wb.getSheetAt(0);
 
@@ -731,7 +731,7 @@ public class RegistreRelation {
 
 		FileOutputStream fileOut;
 		try {
-			fileOut = new FileOutputStream("MC.xlsx");
+			fileOut = new FileOutputStream("MouvementCash.xlsx");
 			wb.write(fileOut);
 			fileOut.close();
 		} catch (FileNotFoundException e) {

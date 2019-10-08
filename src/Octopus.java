@@ -1,5 +1,6 @@
 import java.awt.Desktop;
 
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -33,7 +34,7 @@ public class Octopus extends Application{
 	private static RegistreCompte regCom;
 	
 	public void start(Stage primaryStage) throws IOException {
-		 	primaryStage.setTitle("Octopus 1.2");
+		 	primaryStage.setTitle("Octopus 1.3");
 		    
 		 
 		
@@ -74,7 +75,7 @@ public class Octopus extends Application{
 
 	            public void handle(ActionEvent event) {
 	                try {
-						Desktop.getDesktop().open(new File("Registre relation.xlsx"));
+						Desktop.getDesktop().open(new File("RegistreRelation.xlsx"));
 					
 					} catch (IOException e) {
 						
@@ -93,7 +94,7 @@ public class Octopus extends Application{
 
 	            public void handle(ActionEvent event) {
 	                try {
-						Desktop.getDesktop().open(new File("OC.xlsx"));
+						Desktop.getDesktop().open(new File("OuvertureCLoture.xlsx"));
 					} catch (IOException e) {
 						
 						e.printStackTrace();
@@ -111,7 +112,7 @@ public class Octopus extends Application{
 
 	            public void handle(ActionEvent event) {
 	                try {
-						Desktop.getDesktop().open(new File("MC.xlsx"));
+						Desktop.getDesktop().open(new File("MouvementCash.xlsx"));
 					} catch (IOException e) {
 						
 						e.printStackTrace();
@@ -129,7 +130,7 @@ public class Octopus extends Application{
 
 	            public void handle(ActionEvent event) {
 	                try {
-						Desktop.getDesktop().open(new File("RegistreCompte.xlsx"));
+						Desktop.getDesktop().open(new File("RegistreProspect.xlsx"));
 					} catch (IOException e) {
 						
 						e.printStackTrace();
@@ -154,7 +155,7 @@ public class Octopus extends Application{
 						e1.printStackTrace();
 					}
 	                try {
-						Desktop.getDesktop().open(new File("Recapitulatif.xlsx"));
+						Desktop.getDesktop().open(new File("RecapitulatifProspect.xlsx"));
 					} catch (IOException e) {
 						
 						e.printStackTrace();

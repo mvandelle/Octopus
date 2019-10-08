@@ -35,7 +35,7 @@ public class RegistreCompte {
 	
 	public void storeCompte() throws IOException
 	{
-		FileInputStream fichier = new FileInputStream("RegistreCompte.xlsx");
+		FileInputStream fichier = new FileInputStream("RegistreProspect.xlsx");
 		XSSFWorkbook wb = new XSSFWorkbook(fichier);
 		XSSFSheet sheet = wb.getSheetAt(0);
 		DataFormatter stri = new DataFormatter();
@@ -80,7 +80,7 @@ public class RegistreCompte {
 	
 	public void storeDoc() throws IOException
 	{
-		FileInputStream fichier = new FileInputStream("Recapitulatif.xlsx");
+		FileInputStream fichier = new FileInputStream("RecapitulatifProspect.xlsx");
 		XSSFWorkbook wb = new XSSFWorkbook(fichier);
 		XSSFSheet sheet = wb.getSheetAt(0);
 		
@@ -213,7 +213,7 @@ public class RegistreCompte {
 		
 		FileOutputStream fileOut;
 	       try {
-	         fileOut = new FileOutputStream("RegistreCompte.xlsx");
+	         fileOut = new FileOutputStream("RegistreProspect.xlsx");
 	         wb.write(fileOut);
 	         fileOut.close();
 	       } catch (FileNotFoundException e) {
@@ -345,7 +345,7 @@ public class RegistreCompte {
 		creatRecap();
 		Collections.sort(c);
 		
-		FileInputStream fichier = new FileInputStream("Recapitulatif.xlsx");
+		FileInputStream fichier = new FileInputStream("RecapitulatifProspect.xlsx");
 		XSSFWorkbook wb = new XSSFWorkbook(fichier);
 		XSSFSheet sheet = wb.getSheetAt(0);
 		
@@ -373,7 +373,7 @@ public class RegistreCompte {
 
 		FileOutputStream fileOut;
 		try {
-			fileOut = new FileOutputStream("Recapitulatif.xlsx");
+			fileOut = new FileOutputStream("RecapitulatifProspect.xlsx");
 			wb.write(fileOut);
 			fileOut.close();
 		} catch (FileNotFoundException e) {
