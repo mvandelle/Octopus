@@ -537,7 +537,7 @@ public class RegistreRelation {
 
 		FileOutputStream fileOut;
 		try {
-			fileOut = new FileOutputStream("RegistrerRelation.xlsx");
+			fileOut = new FileOutputStream("RegistreRelation.xlsx");
 			wb.write(fileOut);
 			fileOut.close();
 		} catch (FileNotFoundException e) {

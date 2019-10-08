@@ -328,7 +328,7 @@ public class RegistreCompte {
 		
 		FileOutputStream fileOut;
 		try {
-			fileOut = new FileOutputStream("Recapitulatif.xlsx");
+			fileOut = new FileOutputStream("RecapitulatifProspect.xlsx");
 			wb.write(fileOut);
 			fileOut.close();
 		} catch (FileNotFoundException e) {
